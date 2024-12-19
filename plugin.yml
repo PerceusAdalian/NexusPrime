@@ -1,8 +1,8 @@
-main: com.perceus.tlc.TheLuminalConjecture
+main: com.nexus.alpha.NexusProper
 name: NexusPrime
 version: 0.1.0
 api-version: 1.21
 commands:
-    tlc:
+    sys:
         description: Nexus Command Line
         usage: /sys

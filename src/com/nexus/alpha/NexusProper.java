@@ -16,14 +16,14 @@ public class NexusProper extends JavaPlugin
 		debug = false;
 		
 		this.getCommand("sys").setExecutor(new NexusCommand());;
-		NexusPrintUtils.NexusPrint("Nexus -- &aOK");
+		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 		
 	}
 	
 	@Override
 	public void onDisable() 
 	{
-		NexusPrintUtils.NexusPrint("Nexus: &3Unmounting...");
+		NexusPrintUtils.NexusConsolePrint("Nexus -- &3Disabling...");
 	}
 }
 

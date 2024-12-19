@@ -22,11 +22,11 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) 
 	{
-		Player player = (Player) sender;
 		if (!(sender instanceof Player)) 
 		{
 			return false;
 		}
+		Player player = (Player) sender;
 		
 		if (!sender.isOp()) 
 		{
@@ -46,10 +46,12 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			{
 				NexusProper.debug = true;
 				player.sendMessage(NexusPrintUtils.NexusDebug("&7Console logging has been turned &a&lON"));
+				NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &a&lON");
 				return true;
 			}
 			NexusProper.debug = false;
 			player.sendMessage(NexusPrintUtils.NexusDebug("&7Console logging has been turned &c&lOFF"));
+			NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &c&lOFF");
 			return true;
 		}
 		return false;
