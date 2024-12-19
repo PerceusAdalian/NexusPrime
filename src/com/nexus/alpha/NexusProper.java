@@ -17,7 +17,7 @@ public class NexusProper extends JavaPlugin
 		
 		this.getCommand("sys").setExecutor(new NexusCommand());;
 		NexusPrintUtils.NexusPrint("Nexus -- &aOK");
-		//test 2
+		
 	}
 	
 	@Override
