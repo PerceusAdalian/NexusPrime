@@ -4,7 +4,7 @@ public class NexusPrintUtils
 {
 	public static String NexusPrint(String msg) 
 	{
-		return PrintUtils.ColorParser("&f{&eν&r&f} "+msg+" &r&f/&a$&f//");
+		return PrintUtils.ColorParser("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
 	}
 	
 	public static String NexusError(String msg) 
@@ -19,7 +19,7 @@ public class NexusPrintUtils
 	
 	public static void NexusConsolePrint(String msg) 
 	{
-		PrintUtils.Print("&f{&eν&r&f} "+msg+" &r&f/&a$&f//");
+		PrintUtils.Print("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
 	}
 	
 	public static void NexusConsoleError(String msg) 
