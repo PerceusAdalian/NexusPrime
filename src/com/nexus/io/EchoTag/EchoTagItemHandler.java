@@ -30,33 +30,38 @@ public class EchoTagItemHandler implements Listener
 				return;
 			}
 			
-			if (EchoNamespace.isEchoBound(stack)) //This block checks for if the item in question is already echo bound and will disallow pickup if so.
+			if (!EchoNamespace.isEchoBound(stack)) //This block checks for if the item in question is already echo bound and will disallow pickup if so.
 			{
-				String ownerKey = EchoNamespace.getEchoOwner(stack);
-				if (ownerKey != null) 
-				{
-					UUID ownerID = UUID.fromString(ownerKey);
-					if (ownerID != null && !player.getUniqueId().equals(ownerID)) 
-					{
-						e.setCancelled(true);
-						player.sendMessage(NexusPrintUtils.NexusError("This item's echo is bound to another and cannot be picked up."));
-					}
-					return; //Two return checks in the event either the player's UUID or the namespacedkey is null.
-				}
-				return; //~snip~ exit.
+				//Continues with registering the item's echo key if it's not already echo bound.
+				ItemMeta meta = stack.getItemMeta();
+				
+				if (meta == null) return;
+				
+				List<String> itemDescription = new ArrayList<>();
+				itemDescription.add(PrintUtils.ColorParser("&r&7&oThis item is Echo Bound to: &r&e&l" + player.getName()));
+				itemDescription.add("\n");
+				meta.setLore(itemDescription); 
+				stack.setItemMeta(meta); //Display the owner's name on the item as Echo Bound.
+				
+				EchoNamespace.setEchoNamespace(stack, player); //Sets the key to the player's UUID on the item.
+				
+				player.sendMessage(NexusPrintUtils.NexusPrint("This " + stack.getType().toString() + "'s echo is now bound to you.")); //Player registration confirmation.
+				return;
 			}
+			// THIS IS CURRENTLY NOT WORKING AS INTENDED
 			
-			//Continues with registering the item's echo key if it's not already echo bound.
-			ItemMeta meta = stack.getItemMeta();
-			List<String> itemDescription = new ArrayList<>();
-			itemDescription.add(PrintUtils.ColorParser("&r&7&oThis item is Echo Bound to: &r&e&l" + player.getName()));
-			itemDescription.add("\n");
-			meta.setLore(itemDescription); 
-			stack.setItemMeta(meta); //Display the owner's name on the item as Echo Bound.
-			
-			EchoNamespace.setEchoNamespace(stack, player); //Sets the key to the player's UUID on the item.
-			
-			player.sendMessage(NexusPrintUtils.NexusPrint("This " + stack.getItemMeta().getDisplayName() + "'s echo is now bound to you.")); //Player registration confirmation.
+			String ownerKey = EchoNamespace.getEchoOwner(stack);
+			if (ownerKey != null) 
+			{
+				UUID ownerID = UUID.fromString(ownerKey);
+				if (ownerID != null && !player.getUniqueId().equals(ownerID)) 
+				{
+					e.setCancelled(true);
+					player.sendMessage(NexusPrintUtils.NexusError("This item's echo is bound to another and cannot be picked up."));
+				}
+				return; //Two return checks in the event either the player's UUID or the namespacedkey is null.
+			}
+			return;
 		}
 	}
 }

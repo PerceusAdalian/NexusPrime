@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.nexus.alpha.NexusProper;
@@ -16,7 +17,9 @@ public class EchoNamespace
 	public static void setEchoNamespace(ItemStack stack, Player p) 
 	{	
 		UUID player = p.getUniqueId();
-		stack.getItemMeta().getPersistentDataContainer().set(echokey, PersistentDataType.STRING, player.toString());
+		ItemMeta meta = stack.getItemMeta();
+		meta.getPersistentDataContainer().set(echokey, PersistentDataType.STRING, player.toString());
+		stack.setItemMeta(meta);
 	}
 	
 	public static void removeEchoNamespace(ItemStack stack, Player p) 
@@ -41,5 +44,4 @@ public class EchoNamespace
 		return stack.getItemMeta().getPersistentDataContainer().has(echokey);
 	}
 	
-	//end
 }
