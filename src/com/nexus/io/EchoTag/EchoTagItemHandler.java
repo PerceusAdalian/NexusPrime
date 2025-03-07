@@ -49,8 +49,10 @@ public class EchoTagItemHandler implements Listener
 			//Continues with registering the item's echo key if it's not already echo bound.
 			ItemMeta meta = stack.getItemMeta();
 			List<String> itemDescription = new ArrayList<>();
-			itemDescription.add(PrintUtils.ColorParser("&r&7&oThis item is Echo Bound to: &r&e&l" + player.getName()) + "&r\n"); //At a later date, I'll add functionality to allow bound item pickups; this will display the owner.
-			meta.setLore(itemDescription); //Display the owner's name on the item as Echo Bound.
+			itemDescription.add(PrintUtils.ColorParser("&r&7&oThis item is Echo Bound to: &r&e&l" + player.getName()));
+			itemDescription.add("\n");
+			meta.setLore(itemDescription); 
+			stack.setItemMeta(meta); //Display the owner's name on the item as Echo Bound.
 			
 			EchoNamespace.setEchoNamespace(stack, player); //Sets the key to the player's UUID on the item.
 			

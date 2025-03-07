@@ -54,6 +54,16 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &c&lOFF");
 			return true;
 		}
+		
+//		if (args[0].equals("unbind")) 
+//		{
+//			ItemStack stack = player.getInventory().getItemInMainHand();
+//			if (EchoNamespace.isEchoBound(stack)) 
+//			{
+//				
+//			}
+//		} I eventually want to be able to force unbind an item, but for now, I'm not going to worry about it..
+		
 		return false;
 	}
 
