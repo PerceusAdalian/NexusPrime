@@ -20,7 +20,6 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.nexus.alpha.NexusProper;
 
-final @Deprecated
 public class NexusPDCUtils
 {
 	/**

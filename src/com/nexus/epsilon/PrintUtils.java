@@ -8,9 +8,7 @@ public class PrintUtils
 	public static String ColorParser(String msg) 
 	{
 		return ChatColor.translateAlternateColorCodes('&', msg);
-		
 	}
-	
 	public static void Print(String msg) 
 	{
 		Bukkit.getServer().getConsoleSender().sendMessage(ColorParser(msg));

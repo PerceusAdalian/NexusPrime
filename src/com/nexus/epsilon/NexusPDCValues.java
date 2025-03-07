@@ -8,7 +8,6 @@ import org.bukkit.persistence.PersistentDataContainer;
 import com.nexus.alpha.NexusProper;
 import com.nexus.epsilon.NexusPDCUtils.DType;
 
-final @Deprecated
 public class NexusPDCValues
 {
 	/**

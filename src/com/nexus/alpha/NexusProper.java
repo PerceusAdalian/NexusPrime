@@ -1,8 +1,10 @@
 package com.nexus.alpha;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nexus.epsilon.NexusPrintUtils;
+import com.nexus.io.EchoTag.EchoTagItemHandler;
 
 public class NexusProper extends JavaPlugin
 {
@@ -16,6 +18,7 @@ public class NexusProper extends JavaPlugin
 		debug = false;
 		
 		this.getCommand("sys").setExecutor(new NexusCommand());;
+		Bukkit.getPluginManager().registerEvents(new EchoTagItemHandler(), instance);
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 		
 	}
