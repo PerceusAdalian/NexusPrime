@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.io.EchoTag.EchoTagDespawnHandler;
 import com.nexus.io.EchoTag.EchoTagItemHandler;
-import com.nexus.io.ResonanceShard.ResonanceCrystalHandler;
+import com.nexus.io.ResonanceCrystal.ResonanceCrystalHandler;
 import com.nexus.io.objectbuilder.NexusItemRegistry;
 
 public class NexusProper extends JavaPlugin

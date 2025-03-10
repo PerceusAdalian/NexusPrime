@@ -3,7 +3,7 @@ package com.nexus.io.objectbuilder;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nexus.io.ResonanceShard.ResonanceCrystalObject;
+import com.nexus.io.ResonanceCrystal.ResonanceCrystalObject;
 
 public class NexusItemRegistry 
 {

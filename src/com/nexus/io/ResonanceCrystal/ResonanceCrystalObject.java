@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceShard;
+package com.nexus.io.ResonanceCrystal;
 
 import org.bukkit.Material;
 
