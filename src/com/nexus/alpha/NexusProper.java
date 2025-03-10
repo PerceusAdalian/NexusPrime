@@ -42,8 +42,8 @@ public class NexusProper extends JavaPlugin
  * Project Notes:
  * 		
  * if (ProjectEchoesOfLumina.debug == true){}
- *
- *
+ URGENT >> Todo: Make it so that Resonance Crystal is droppable or craftable. 
+ URGENT >> Todo: Make it so that you can transfer ownership of echo bound items to other players.
  */
 
 /*
