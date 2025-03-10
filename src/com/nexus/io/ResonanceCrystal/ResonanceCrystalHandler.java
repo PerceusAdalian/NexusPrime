@@ -50,18 +50,19 @@ public class ResonanceCrystalHandler implements Listener
 		{
 			Player p = event.getPlayer();
 			event.setCancelled(true);
+			
 			if (event.getAction().equals(Action.RIGHT_CLICK_AIR) && p.isSneaking()) 
 			{				
 				if (!playerStoredLocation.containsKey(p.getUniqueId())) 
 				{
 					playerStoredLocation.put(p.getUniqueId(), p.getLocation());
-					p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, SoundCategory.MASTER, 1, 1);
+					p.playSound(p.getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.MASTER, 1, 1);
 					p.sendMessage(NexusPrintUtils.NexusPrint("&7&oThe crystal begins to glow.."));
 					return;
 				}
 				playerStoredLocation.remove(p.getUniqueId());
 				playerStoredLocation.put(p.getUniqueId(), p.getLocation());
-				p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, SoundCategory.MASTER, 1, 1);
+				p.playSound(p.getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.MASTER, 1, 1);
 				p.sendMessage(NexusPrintUtils.NexusPrint("&7&oThe crystal shows a different memory.."));
 				return;
 			}
