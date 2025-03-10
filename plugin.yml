@@ -3,6 +3,6 @@ name: NexusPrime
 version: 0.1.0
 api-version: 1.21
 commands:
-    sys:
+    nexus:
         description: Nexus Command Line
-        usage: /sys
+        usage: /nexus

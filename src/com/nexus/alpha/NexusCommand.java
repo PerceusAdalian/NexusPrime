@@ -1,5 +1,6 @@
 package com.nexus.alpha;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -8,15 +9,18 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import com.nexus.epsilon.NexusPrintUtils;
+import com.nexus.io.objectbuilder.AbstractNexusObject;
+import com.nexus.io.objectbuilder.NexusItemRegistry;
 
 public class NexusCommand implements CommandExecutor, TabCompleter
 {
 	
 	public NexusCommand() 
 	{
-		Bukkit.getPluginCommand("sys").setTabCompleter(this);
+		Bukkit.getPluginCommand("nexus").setTabCompleter(this);
 	}
 
 	@Override
@@ -55,6 +59,17 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			return true;
 		}
 		
+		if (args[0].equals("generate")) 
+		{
+			if (args[1].equals("item") && NexusItemRegistry.itemRegistry.containsKey(args[2])) 
+			{
+				AbstractNexusObject obj = NexusItemRegistry.itemRegistry.get(args[2]);
+				ItemStack stack = obj.bake();
+				player.getInventory().addItem(stack);
+				return true;
+			}
+		}
+		
 //		if (args[0].equals("unbind")) 
 //		{
 //			ItemStack stack = player.getInventory().getItemInMainHand();
@@ -72,26 +87,28 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 	{
 		
 		return switch(args.length) 
+		{
+			case 0 -> List.of("nexus");
+			case 1 -> List.of("debug", "generate");
+			case 2 -> 
+			{
+				yield switch(args[0])
 				{
-					case 0 -> List.of("sys");
-					case 1 -> List.of("debug");
-					case 2 -> 
-					{
-						yield switch(args[0])
-						{
-							case "debug" -> List.of();
-							default -> List.of();
-						};
-					}
-//					case 3 -> 
-//					{
-//						yield switch(args[1]) 
-//						{
-//							default -> List.of();
-//						};
-//					}
+					case "debug" -> List.of();
+					case "generate" -> List.of("item");
 					default -> List.of();
 				};
+			}
+			case 3 ->
+			{
+				yield switch(args[1]) 
+				{
+					case "item" -> new ArrayList<>(NexusItemRegistry.itemRegistry.keySet());
+					default -> List.of();
+				};
+			}
+			default -> List.of();
+		};
 	}
 	
 }

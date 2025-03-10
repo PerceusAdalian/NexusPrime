@@ -6,6 +6,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.io.EchoTag.EchoTagDespawnHandler;
 import com.nexus.io.EchoTag.EchoTagItemHandler;
+import com.nexus.io.ResonanceShard.ResonanceCrystalHandler;
+import com.nexus.io.objectbuilder.NexusItemRegistry;
 
 public class NexusProper extends JavaPlugin
 {
@@ -18,11 +20,15 @@ public class NexusProper extends JavaPlugin
 		instance = this;
 		debug = false;
 		
-		this.getCommand("sys").setExecutor(new NexusCommand());;
+		this.getCommand("nexus").setExecutor(new NexusCommand());;
+		
 		Bukkit.getPluginManager().registerEvents(new EchoTagItemHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new EchoTagDespawnHandler(), instance);
-		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
+		Bukkit.getPluginManager().registerEvents(new ResonanceCrystalHandler(), instance);
 		
+		NexusItemRegistry.itemInit();
+
+		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 	}
 	
 	@Override

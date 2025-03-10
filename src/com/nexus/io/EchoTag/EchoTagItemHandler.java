@@ -48,7 +48,6 @@ public class EchoTagItemHandler implements Listener
 				player.sendMessage(NexusPrintUtils.NexusPrint("This " + stack.getType().toString() + "'s echo is now bound to you.")); //Player registration confirmation.
 				return;
 			}
-			// THIS IS CURRENTLY NOT WORKING AS INTENDED
 			
 			String ownerKey = EchoNamespace.getEchoOwner(stack);
 			if (ownerKey != null) 
