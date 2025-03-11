@@ -10,10 +10,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
 
 import com.nexus.epsilon.NexusPrintUtils;
-import com.nexus.io.objectbuilder.AbstractNexusObject;
-import com.nexus.io.objectbuilder.NexusItemRegistry;
+import com.nexus.io.NexusObject.AbstractNexusObject;
+import com.nexus.io.NexusObject.NexusItemRegistry;
 
 public class NexusCommand implements CommandExecutor, TabCompleter
 {
@@ -66,6 +67,31 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 				AbstractNexusObject obj = NexusItemRegistry.itemRegistry.get(args[2]);
 				ItemStack stack = obj.bake();
 				player.getInventory().addItem(stack);
+				
+				if (NexusProper.debug == true) 
+				{
+					String internalName = null;
+		            if (stack.getItemMeta() != null) 
+		            {
+		                internalName = stack.getItemMeta().getPersistentDataContainer().get(AbstractNexusObject.nexusObject, PersistentDataType.STRING);
+		            }
+		            
+		            if (internalName == null) 
+		            {
+		                NexusPrintUtils.NexusConsoleError("Could not retrieve internal name from baked item.");
+		                return true;
+		            }
+		            
+		            AbstractNexusObject nexusObject = NexusItemRegistry.itemRegistry.get(internalName);
+		            if (nexusObject == null) 
+		            {
+		                NexusPrintUtils.NexusConsoleError("Internal name exists, but item is not in the registry.");
+		                return true;
+		            }
+		            
+					NexusPrintUtils.NexusConsoleDebug("Summoned item: " + nexusObject.getName() + " | ID: (" + AbstractNexusObject.getInternalNameAsID(internalName) + ") &a&oSuccessfully");
+				}
+				
 				return true;
 			}
 		}

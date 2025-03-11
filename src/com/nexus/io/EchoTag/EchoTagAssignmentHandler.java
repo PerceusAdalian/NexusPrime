@@ -14,7 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.PrintUtils;
 
-public class EchoTagItemHandler implements Listener
+public class EchoTagAssignmentHandler implements Listener
 {
 	@EventHandler
 	public void ItemPickupEvent(EntityPickupItemEvent e) 

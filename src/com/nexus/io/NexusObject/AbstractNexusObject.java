@@ -1,10 +1,11 @@
-package com.nexus.io.objectbuilder;
+package com.nexus.io.NexusObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
@@ -17,7 +18,7 @@ public abstract class AbstractNexusObject
 	public static final NamespacedKey nexusObject = new NamespacedKey(NexusProper.instance, "nexus_object");
 	
 	private String name;
-	private static String internalName;
+	private String internalName;
 	private String[] itemDescription;
 	private Material material;
 	private boolean isEnchanted = false;
@@ -25,7 +26,7 @@ public abstract class AbstractNexusObject
 	public AbstractNexusObject(String name, String internalName, Material material, boolean isEnchanted, String...itemDescription) 
 	{
 		this.name = name;
-		AbstractNexusObject.internalName = internalName;
+		this.internalName = internalName;
 		this.material = material;
 		this.isEnchanted = isEnchanted;
 		this.itemDescription = itemDescription;
@@ -39,13 +40,13 @@ public abstract class AbstractNexusObject
 	{
 		this.name = name;
 	}
-	public static String getInternalName() 
+	public String getInternalName() 
 	{
 		return internalName;
 	}
 	public void setInternalName(String internalName) 
 	{
-		AbstractNexusObject.internalName = internalName;
+		this.internalName = internalName;
 	}
 	public String[] getItemDescription() 
 	{
@@ -75,7 +76,7 @@ public abstract class AbstractNexusObject
 	{
 		return nexusObject;
 	}
-	public String getInternalNameAsID(String internalName) 
+	public static String getInternalNameAsID(String internalName) 
 	{
 		int internalNameID = 0;
 		for (char ch : internalName.toCharArray()) 
@@ -85,6 +86,8 @@ public abstract class AbstractNexusObject
 		
 		return Integer.toHexString(internalNameID).toUpperCase();
 	}
+	
+	public abstract boolean Cast(PlayerInteractEvent e);
 	
 	public ItemStack bake() 
 	{
@@ -106,7 +109,7 @@ public abstract class AbstractNexusObject
 		
 		lore.add("\n");
 		
-		lore.add(PrintUtils.ColorParser("&r&7&oNexus Object ID: " + this.getInternalNameAsID(internalName)));
+		lore.add(PrintUtils.ColorParser("&r&7&oNexus Object ID: " + getInternalNameAsID(internalName)));
 		
 		meta.setDisplayName(PrintUtils.ColorParser("&r&3&ko&r&f&l "+name+" &r&3&ko&r&f&l"));
 		
