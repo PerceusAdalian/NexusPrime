@@ -21,7 +21,8 @@ public class NexusObjectDropHandler implements Listener
 		
 		for (AbstractNexusObject item : NexusItemRegistry.itemRegistry.values()) 
 		{
-			if (r.nextDouble() >= 0.5) return;
+			final double dropChance = 0.1d;
+			if (r.nextDouble() >= dropChance) return;
 			e.getDrops().add(item.bake());
 		}
 	}

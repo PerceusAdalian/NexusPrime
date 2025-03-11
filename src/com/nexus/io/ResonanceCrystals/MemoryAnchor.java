@@ -59,7 +59,8 @@ public class MemoryAnchor extends AbstractNexusObject
 					player.playSound(player.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
 					player.sendMessage(PrintUtils.ColorParser("&7&oThe crystal shatters.. You are as before in time."));
 					playerStoredLocation.remove(player.getUniqueId());
-					player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
+					
+					e.getItem().setAmount(e.getItem().getAmount() - 1);
 				}, 10);
 				return true;				
 			}
