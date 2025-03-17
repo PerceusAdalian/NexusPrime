@@ -6,13 +6,13 @@ import org.bukkit.SoundCategory;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import com.nexus.epsilon.NexusItemCollector;
-import com.nexus.epsilon.PrintUtils;
+import com.nexus.epsilon.NexusPlayerActions;
+import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.io.NexusObject.AbstractNexusObject;
 
 public class EchoicLocator extends AbstractNexusObject
@@ -24,13 +24,13 @@ public class EchoicLocator extends AbstractNexusObject
 				"&r&fA highly unstable form of &e&l&oEchoic Energy&r&f.",
 				"&r&f&lRight-Click&r&f to reveal nearby &r&d&oEntities&r&f.", 
 				"&r&f&lRange&r&f: &b&o50 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f",
-				"&r&cDestroys&r&f this item upon use. This item is stackable.");
+				"&r&cDestroys&r&f this item upon use. Stackable.");
 	}
 	
 	@Override
 	public boolean Cast(PlayerInteractEvent e) 
 	{
-		if (e.getAction().equals(Action.RIGHT_CLICK_AIR)) 
+		if (NexusPlayerActions.rightClickAir(e)) 
 		{			
 			if (e.getPlayer().getNearbyEntities(50, 50, 50).size() == 0) 
 			{
@@ -49,7 +49,7 @@ public class EchoicLocator extends AbstractNexusObject
 				}
 			}
 			
-			e.getPlayer().sendMessage(PrintUtils.ColorParser("&7&oThe crystal shatters in a flash of light.."));
+			e.getPlayer().sendMessage(NexusPrintUtils.ColorParser("&7&oThe crystal shatters in a flash of light.."));
 			NexusItemCollector.remove(e);
 			return true;
 		}

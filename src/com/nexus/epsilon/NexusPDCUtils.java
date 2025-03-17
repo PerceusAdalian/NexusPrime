@@ -574,11 +574,11 @@ public class NexusPDCUtils
 	 */
 	public static void printData(PersistentDataHolder dataHolder)
 	{
-		PrintUtils.Print("--- Printing Data Container ---");
+		NexusPrintUtils.Print("--- Printing Data Container ---");
 		printContainer(dataHolder.getPersistentDataContainer());
-		PrintUtils.Print("");
-		PrintUtils.Print("---    Printing Finished    ---");
-		PrintUtils.Print("");
+		NexusPrintUtils.Print("");
+		NexusPrintUtils.Print("---    Printing Finished    ---");
+		NexusPrintUtils.Print("");
 	}
 	
 	private static void printContainer(PersistentDataContainer container)
@@ -595,29 +595,29 @@ public class NexusPDCUtils
 				
 				String displayKey = key.getNamespace() + ":" + key.getKey();
 				
-				PrintUtils.Print("");
+				NexusPrintUtils.Print("");
 				
 				switch(dType)
 				{
 					case BYTE_ARRAY:
 					{
-						PrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
-						PrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
-						PrintUtils.Print("&7{&eData : " + format((Byte[]) primToObjArray(data.get(key,type))) + "&7}");
+						NexusPrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
+						NexusPrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
+						NexusPrintUtils.Print("&7{&eData : " + format((Byte[]) primToObjArray(data.get(key,type))) + "&7}");
 						break;
 					}
 					case INTEGER_ARRAY:
 					{
-						PrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
-						PrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
-						PrintUtils.Print("&7{&eData : " + format((Integer[]) primToObjArray(data.get(key,type))) + "&7}");
+						NexusPrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
+						NexusPrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
+						NexusPrintUtils.Print("&7{&eData : " + format((Integer[]) primToObjArray(data.get(key,type))) + "&7}");
 						break;
 					}
 					case LONG_ARRAY:
 					{
-						PrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
-						PrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
-						PrintUtils.Print("&7{&eData : " + format((Long[]) primToObjArray(data.get(key,type))) + "&7}");
+						NexusPrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
+						NexusPrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
+						NexusPrintUtils.Print("&7{&eData : " + format((Long[]) primToObjArray(data.get(key,type))) + "&7}");
 						break;
 					}
 					case TAG_CONTAINER:
@@ -627,9 +627,9 @@ public class NexusPDCUtils
 					}
 					default:
 					{
-						PrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
-						PrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
-						PrintUtils.Print("&7{&eData : " + data.get(key,type).toString() + "&7}");
+						NexusPrintUtils.Print("&7{&eNSKey: " + displayKey + "&7}");
+						NexusPrintUtils.Print("&7{&eType : " + dType.toString() + "&7}");
+						NexusPrintUtils.Print("&7{&eData : " + data.get(key,type).toString() + "&7}");
 					}
 				}
 			}
@@ -651,13 +651,13 @@ public class NexusPDCUtils
 	 */
 	public static void printJData(PersistentDataHolder dataHolder)
 	{
-		PrintUtils.Print("--- Printing Json Data Map  ---");
+		NexusPrintUtils.Print("--- Printing Json Data Map  ---");
 		
 		String json = gsonPretty.toJson(getJContainer(dataHolder));
-		PrintUtils.Print("\n&e" + json);
+		NexusPrintUtils.Print("\n&e" + json);
 		
-		PrintUtils.Print("---    Printing Finished    ---");
-		PrintUtils.Print("");
+		NexusPrintUtils.Print("---    Printing Finished    ---");
+		NexusPrintUtils.Print("");
 	}
 	
 	/**
@@ -685,7 +685,7 @@ public class NexusPDCUtils
 			break;
 		}
 		
-		if(output == null) { PrintUtils.PrintError("Object passed is not a primitive type!"); }
+		if(output == null) { NexusPrintUtils.NexusFormatError("Object passed is not a primitive type!"); }
 		
 		return output;
 	}

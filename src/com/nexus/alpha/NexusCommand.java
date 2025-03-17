@@ -35,13 +35,13 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 		
 		if (!sender.isOp()) 
 		{
-			player.sendMessage(NexusPrintUtils.NexusError("&7Permission Denied"));
+			player.sendMessage(NexusPrintUtils.NexusFormatError("&7Permission Denied"));
 			return false;
 		}
 		
 		if (args.length == 0) 
 		{
-			player.sendMessage(NexusPrintUtils.NexusError("&7Invalid Argument(s)"));
+			player.sendMessage(NexusPrintUtils.NexusFormatError("&7Invalid Argument(s)"));
 			return false;
 		}
 		
@@ -50,12 +50,12 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			if (NexusProper.debug == false) 
 			{
 				NexusProper.debug = true;
-				player.sendMessage(NexusPrintUtils.NexusDebug("&7Console logging has been turned &a&lON"));
+				player.sendMessage(NexusPrintUtils.NexusFormatDebug("&7Console logging has been turned &a&lON"));
 				NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &a&lON");
 				return true;
 			}
 			NexusProper.debug = false;
-			player.sendMessage(NexusPrintUtils.NexusDebug("&7Console logging has been turned &c&lOFF"));
+			player.sendMessage(NexusPrintUtils.NexusFormatDebug("&7Console logging has been turned &c&lOFF"));
 			NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &c&lOFF");
 			return true;
 		}

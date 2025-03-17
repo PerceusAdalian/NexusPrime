@@ -12,7 +12,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.nexus.epsilon.NexusPrintUtils;
-import com.nexus.epsilon.PrintUtils;
 
 public class EchoTagAssignmentHandler implements Listener
 {
@@ -38,14 +37,14 @@ public class EchoTagAssignmentHandler implements Listener
 				if (meta == null) return;
 				
 				List<String> itemDescription = new ArrayList<>();
-				itemDescription.add(PrintUtils.ColorParser("&r&7&oThis item is Echo Bound to: &r&e&l" + player.getName()));
+				itemDescription.add(NexusPrintUtils.ColorParser("&r&7&oThis item is Echo Bound to: &r&e&l" + player.getName()));
 				itemDescription.add("\n");
 				meta.setLore(itemDescription); 
 				stack.setItemMeta(meta); //Display the owner's name on the item as Echo Bound.
 				
 				EchoNamespace.setEchoNamespace(stack, player); //Sets the key to the player's UUID on the item.
 				
-				player.sendMessage(NexusPrintUtils.NexusPrint("This " + stack.getType().toString() + "'s echo is now bound to you.")); //Player registration confirmation.
+				NexusPrintUtils.Print(player, "This " + stack.getType().toString() + "'s echo is now bound to you."); //Player registration confirmation.
 				return;
 			}
 			
@@ -56,7 +55,7 @@ public class EchoTagAssignmentHandler implements Listener
 				if (ownerID != null && !player.getUniqueId().equals(ownerID)) 
 				{
 					e.setCancelled(true);
-					player.sendMessage(NexusPrintUtils.NexusError("This item's echo is bound to another and cannot be picked up."));
+					NexusPrintUtils.Print(player, "&c&oThis item's echo is bound to another and cannot be picked up.");
 				}
 				return; //Two return checks in the event either the player's UUID or the namespacedkey is null.
 			}

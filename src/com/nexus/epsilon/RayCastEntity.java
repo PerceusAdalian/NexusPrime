@@ -10,8 +10,7 @@ public class RayCastEntity
 	{
 	    RayTraceResult result = p.getLocation().getWorld().rayTraceEntities(p.getEyeLocation().add(p.getEyeLocation().getDirection().normalize().multiply(2)),p.getEyeLocation().getDirection(),range);
 	    
-	    if(result == null) { return null; }
-	    if(result.getHitEntity() == null) { return null; }
+	    if(result == null || result.getHitEntity() == null) return null;
 	    return result.getHitEntity();
 	}
 }

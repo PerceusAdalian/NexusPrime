@@ -3,13 +3,13 @@ package com.nexus.io.NexusObject;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.nexus.alpha.NexusProper;
+import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 
 public class NexusObjectCastHandler implements Listener
@@ -25,7 +25,7 @@ public class NexusObjectCastHandler implements Listener
 			return false;
 		}
 		
-		if (!e.getAction().equals(Action.RIGHT_CLICK_AIR)) 
+		if (!NexusPlayerActions.rightClickAir(e)) 
 		{
 			return false;
 		}

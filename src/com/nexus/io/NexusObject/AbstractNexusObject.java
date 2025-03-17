@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.nexus.alpha.NexusProper;
-import com.nexus.epsilon.PrintUtils;
+import com.nexus.epsilon.NexusPrintUtils;
 
 public abstract class AbstractNexusObject 
 {
@@ -104,14 +104,14 @@ public abstract class AbstractNexusObject
 		
 		for (String line : itemDescription) 
 		{
-			lore.add(PrintUtils.ColorParser("&r&f" + line) + "\n");
+			lore.add(NexusPrintUtils.ColorParser("&r&f" + line) + "\n");
 		}
 		
 		lore.add("\n");
 		
-		lore.add(PrintUtils.ColorParser("&r&7&oNexus Object ID: " + getInternalNameAsID(internalName)));
+		lore.add(NexusPrintUtils.ColorParser("&r&7&oNexus Object ID: " + getInternalNameAsID(internalName)));
 		
-		meta.setDisplayName(PrintUtils.ColorParser("&r&3&ko&r&f&l "+name+" &r&3&ko&r&f&l"));
+		meta.setDisplayName(NexusPrintUtils.ColorParser("&r&3&ko&r&f&l "+name+" &r&3&ko&r&f&l"));
 		
 		meta.setLore(lore);
 		

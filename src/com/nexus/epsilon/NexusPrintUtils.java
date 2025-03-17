@@ -1,34 +1,53 @@
 package com.nexus.epsilon;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+
 public class NexusPrintUtils
 {
-	public static String NexusPrint(String msg) 
+	public static String ColorParser(String msg) 
 	{
-		return PrintUtils.ColorParser("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
+		return ChatColor.translateAlternateColorCodes('&', msg);
 	}
 	
-	public static String NexusError(String msg) 
+	public static void Print(String msg) 
 	{
-		return PrintUtils.ColorParser("&f{&cν&r&f} "+msg+" &r&f/&c!&f//");
+		Bukkit.getServer().getConsoleSender().sendMessage(ColorParser(msg));
 	}
 	
-	public static String NexusDebug(String msg) 
+	public static void Print(Player player, String msg) 
 	{
-		return PrintUtils.ColorParser("&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
+		player.getPlayer().sendMessage(ColorParser(msg));
+	}
+	
+	public static String NexusFormatPrint(String msg) 
+	{
+		return ColorParser("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
+	}
+	
+	public static String NexusFormatError(String msg) 
+	{
+		return ColorParser("&f{&cν&r&f} "+msg+" &r&f/&c!&f//");
+	}
+	
+	public static String NexusFormatDebug(String msg) 
+	{
+		return ColorParser("&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
 	}
 	
 	public static void NexusConsolePrint(String msg) 
 	{
-		PrintUtils.Print("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
+		Bukkit.getServer().getConsoleSender().sendMessage(ColorParser("&f{&eν&r&f} "+msg+" &r&f/&e$&f//"));
 	}
 	
 	public static void NexusConsoleError(String msg) 
 	{
-		PrintUtils.Print("&f{&cν&r&f} "+msg+" &r&f/&c!&f//");
+		Bukkit.getServer().getConsoleSender().sendMessage(ColorParser("&f{&cν&r&f} "+msg+" &r&f/&c!&f//"));
 	}
 	
 	public static void NexusConsoleDebug(String msg) 
 	{
-		PrintUtils.Print("&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
+		Print("&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
 	}
 }

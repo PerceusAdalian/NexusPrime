@@ -3,6 +3,7 @@ package com.nexus.io.NexusObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nexus.io.ResonanceCrystals.DistortGravity;
 import com.nexus.io.ResonanceCrystals.EchoicLocator;
 import com.nexus.io.ResonanceCrystals.MemoryAnchor;
 
@@ -19,5 +20,8 @@ public class NexusItemRegistry
 		
 		EchoicLocator locatorObject = new EchoicLocator();
 		itemRegistry.put(locatorObject.getInternalName(), locatorObject);
+		
+		DistortGravity gravityObject = new DistortGravity();
+		itemRegistry.put(gravityObject.getInternalName(), gravityObject);
 	}
 }
