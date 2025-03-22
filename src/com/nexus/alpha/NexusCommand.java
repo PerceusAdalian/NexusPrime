@@ -35,13 +35,13 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 		
 		if (!sender.isOp()) 
 		{
-			player.sendMessage(NexusPrintUtils.NexusFormatError("&7Permission Denied"));
+			NexusPrintUtils.NexusFormatError(player, "&7Permission Denied");
 			return false;
 		}
 		
 		if (args.length == 0) 
 		{
-			player.sendMessage(NexusPrintUtils.NexusFormatError("&7Invalid Argument(s)"));
+			NexusPrintUtils.NexusFormatError(player, "&7Invalid Argument(s)");
 			return false;
 		}
 		
@@ -50,12 +50,12 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			if (NexusProper.debug == false) 
 			{
 				NexusProper.debug = true;
-				player.sendMessage(NexusPrintUtils.NexusFormatDebug("&7Console logging has been turned &a&lON"));
+				NexusPrintUtils.NexusFormatDebug(player, "&7Console logging has been turned &a&lON");
 				NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &a&lON");
 				return true;
 			}
 			NexusProper.debug = false;
-			player.sendMessage(NexusPrintUtils.NexusFormatDebug("&7Console logging has been turned &c&lOFF"));
+			NexusPrintUtils.NexusFormatDebug(player, "&7Console logging has been turned &c&lOFF");
 			NexusPrintUtils.NexusConsoleDebug("&7Console logging has been turned &c&lOFF");
 			return true;
 		}
@@ -89,7 +89,7 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 		                return true;
 		            }
 		            
-					NexusPrintUtils.NexusConsoleDebug("Summoned item: " + nexusObject.getName() + " | ID: (" + AbstractNexusObject.getInternalNameAsID(internalName) + ") &a&oSuccessfully");
+					NexusPrintUtils.NexusConsoleDebug("&7Summoned item: " + nexusObject.getName() + "&7 | ID: (" + AbstractNexusObject.getInternalNameAsID(internalName) + "&7) &a&oSuccessfully");
 				}
 				
 				return true;

@@ -3,9 +3,12 @@ package com.nexus.io.NexusObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nexus.io.ResonanceCrystals.DistortGravity;
 import com.nexus.io.ResonanceCrystals.EchoicLocator;
+import com.nexus.io.ResonanceCrystals.GravitasOrdinance;
 import com.nexus.io.ResonanceCrystals.MemoryAnchor;
+import com.nexus.io.ResonanceCrystals.RiftPostulate;
+import com.nexus.io.ResonanceCrystals.ThermalDisruption;
+import com.nexus.io.ResonanceCrystals.VectorProtocol;
 
 public class NexusItemRegistry 
 {
@@ -21,7 +24,16 @@ public class NexusItemRegistry
 		EchoicLocator locatorObject = new EchoicLocator();
 		itemRegistry.put(locatorObject.getInternalName(), locatorObject);
 		
-		DistortGravity gravityObject = new DistortGravity();
+		GravitasOrdinance gravityObject = new GravitasOrdinance();
 		itemRegistry.put(gravityObject.getInternalName(), gravityObject);
+		
+		VectorProtocol vectorObject = new VectorProtocol();
+		itemRegistry.put(vectorObject.getInternalName(), vectorObject);
+		
+		RiftPostulate riftObject = new RiftPostulate();
+		itemRegistry.put(riftObject.getInternalName(), riftObject);
+		
+		ThermalDisruption smeltObject = new ThermalDisruption();
+		itemRegistry.put(smeltObject.getInternalName(), smeltObject);
 	}
 }

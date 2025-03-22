@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nexus.epsilon.NexusPrintUtils;
+import com.nexus.epsilon.OreValues;
 import com.nexus.io.EchoTag.EchoTagAssignmentHandler;
 import com.nexus.io.EchoTag.EchoTagDespawnHandler;
 import com.nexus.io.NexusObject.NexusItemRegistry;
@@ -29,7 +30,7 @@ public class NexusProper extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new NexusObjectDropHandler(), instance);
 		
 		NexusItemRegistry.itemInit();
-		
+		OreValues.init();
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 	}
 	

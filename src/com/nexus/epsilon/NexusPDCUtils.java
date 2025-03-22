@@ -685,7 +685,7 @@ public class NexusPDCUtils
 			break;
 		}
 		
-		if(output == null) { NexusPrintUtils.NexusFormatError("Object passed is not a primitive type!"); }
+		if(output == null) { NexusPrintUtils.NexusConsoleError("Object passed is not a primitive type!"); }
 		
 		return output;
 	}

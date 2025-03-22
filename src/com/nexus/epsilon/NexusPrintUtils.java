@@ -21,29 +21,29 @@ public class NexusPrintUtils
 		player.getPlayer().sendMessage(ColorParser(msg));
 	}
 	
-	public static String NexusFormatPrint(String msg) 
+	public static void NexusFormatPrint(Player player, String msg) 
 	{
-		return ColorParser("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
+		Print(player, "&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
 	}
 	
-	public static String NexusFormatError(String msg) 
+	public static void NexusFormatError(Player player, String msg) 
 	{
-		return ColorParser("&f{&cν&r&f} "+msg+" &r&f/&c!&f//");
+		Print(player, "&f{&cν&r&f} "+msg+" &r&f/&c!&f//");
 	}
 	
-	public static String NexusFormatDebug(String msg) 
+	public static void NexusFormatDebug(Player player, String msg) 
 	{
-		return ColorParser("&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
+		Print(player.getPlayer(), "&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
 	}
 	
 	public static void NexusConsolePrint(String msg) 
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(ColorParser("&f{&eν&r&f} "+msg+" &r&f/&e$&f//"));
+		Print("&f{&eν&r&f} "+msg+" &r&f/&e$&f//");
 	}
 	
 	public static void NexusConsoleError(String msg) 
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(ColorParser("&f{&cν&r&f} "+msg+" &r&f/&c!&f//"));
+		Print("&f{&cν&r&f} "+msg+" &r&f/&c!&f//");
 	}
 	
 	public static void NexusConsoleDebug(String msg) 

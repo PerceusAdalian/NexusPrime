@@ -7,7 +7,7 @@ import org.bukkit.util.Vector;
 
 public class NexusParticles 
 {
-	public static <T> void drawLine(Location source, Location target, int interval, Particle p, T data) 
+	public static <T> void drawLine(Location source, Location target, int interval, Particle p, @Nullable T data) 
 	{
 		if (!source.getWorld().equals(target.getWorld())) 
 		{

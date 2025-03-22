@@ -12,19 +12,15 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.nexus.epsilon.NexusItemCollector;
 import com.nexus.epsilon.NexusPlayerActions;
-import com.nexus.epsilon.NexusPrintUtils;
-import com.nexus.io.NexusObject.AbstractNexusObject;
 
-public class EchoicLocator extends AbstractNexusObject
+public class EchoicLocator extends AbstractResonanceCrystal
 {
 
 	public EchoicLocator() 
 	{
-		super("Resonance Crystal: Echoic Locator", "locator_crystal", Material.ECHO_SHARD, true, 
-				"&r&fA highly unstable form of &e&l&oEchoic Energy&r&f.",
+		super("Resonance Crystal: Echoic Locator", "locator_crystal", Material.ECHO_SHARD, true, true,
 				"&r&f&lRight-Click&r&f to reveal nearby &r&d&oEntities&r&f.", 
-				"&r&f&lRange&r&f: &b&o50 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f",
-				"&r&cDestroys&r&f this item upon use. Stackable.");
+				"&r&f&lRange&r&f: &b&o50 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f");
 	}
 	
 	@Override
@@ -49,7 +45,7 @@ public class EchoicLocator extends AbstractNexusObject
 				}
 			}
 			
-			e.getPlayer().sendMessage(NexusPrintUtils.ColorParser("&7&oThe crystal shatters in a flash of light.."));
+			e.getPlayer().sendMessage("The crystal shatters in a flash of light..");
 			NexusItemCollector.remove(e);
 			return true;
 		}

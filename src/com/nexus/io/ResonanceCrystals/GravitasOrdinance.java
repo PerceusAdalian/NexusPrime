@@ -10,22 +10,18 @@ import org.bukkit.potion.PotionEffectType;
 import com.nexus.epsilon.NexusEffects;
 import com.nexus.epsilon.NexusItemCollector;
 import com.nexus.epsilon.NexusPlayerActions;
-import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.RayCastEntity;
-import com.nexus.io.NexusObject.AbstractNexusObject;
 
 //Not yet added
 
-public class DistortGravity extends AbstractNexusObject
+public class GravitasOrdinance extends AbstractResonanceCrystal
 {
 
-	public DistortGravity() 
+	public GravitasOrdinance() 
 	{
-		super("Gravity Null-Point Protocol", "distort_gravity", Material.ECHO_SHARD, true, 
-				"&r&fA highly unstable form of &e&l&oEchoic Energy&r&f.",
+		super("Resonance Crystal: Gravitas Ordinance", "distort_gravity", Material.ECHO_SHARD, true, true,
 				"&r&f&lRight-Click&r&f to distort gravity for you or others.",
-				"&r&f&lTarget Range&r&f: &b&o25 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f",
-				"&r&cDestroys&r&f this item upon use. Stackable.");
+				"&r&f&lTarget Range&r&f: &b&o25 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f");
 	}
 
 	@Override
@@ -38,13 +34,14 @@ public class DistortGravity extends AbstractNexusObject
 				NexusEffects.add(e, PotionEffectType.SLOW_FALLING, 300, 0);
 				NexusEffects.add(e, PotionEffectType.JUMP_BOOST, 300, 2);
 				e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_CONDUIT_ACTIVATE, SoundCategory.MASTER, 1, 1);
-				e.getPlayer().sendMessage(NexusPrintUtils.ColorParser("&7&oThe crystal returns to dust.."));
+				e.getPlayer().sendMessage("Gravity has been nullified; the crystal returns to dust..");
 				NexusItemCollector.remove(e);
 				return true;
 			}
 			Entity target = RayCastEntity.getNearest(e.getPlayer(), 25);
-			NexusEffects.add(target, PotionEffectType.LEVITATION, 30, 0);
+			NexusEffects.add(target, PotionEffectType.LEVITATION, 300, 0);
 			e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.MASTER, 1, 1);
+			e.getPlayer().sendMessage("The crystal returns to dust..");
 			NexusItemCollector.remove(e);
 			return true;
 		}

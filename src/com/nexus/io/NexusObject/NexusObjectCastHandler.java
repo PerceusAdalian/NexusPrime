@@ -39,6 +39,7 @@ public class NexusObjectCastHandler implements Listener
 		{
 			return false;
 		}
+
 	    
 	    if (NexusItemRegistry.itemRegistry.get(held.getItemMeta().getPersistentDataContainer().get(AbstractNexusObject.nexusObject, PersistentDataType.STRING)).Cast(e)) 
 	    {
@@ -46,6 +47,9 @@ public class NexusObjectCastHandler implements Listener
 			
 			if (NexusProper.debug) 
 			{
+
+				NexusPrintUtils.NexusFormatDebug(e.getPlayer(), e.getAction().toString());
+				
 				String internalName = null;
 				if (held.getItemMeta() != null) 
 				{
