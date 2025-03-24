@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nexus.io.ResonanceCrystals.EchoicLocator;
-import com.nexus.io.ResonanceCrystals.GravitasOrdinance;
+import com.nexus.io.ResonanceCrystals.NullifyGravity;
 import com.nexus.io.ResonanceCrystals.MemoryAnchor;
+import com.nexus.io.ResonanceCrystals.EchoicDisruption;
 import com.nexus.io.ResonanceCrystals.RiftPostulate;
 import com.nexus.io.ResonanceCrystals.ThermalDisruption;
-import com.nexus.io.ResonanceCrystals.VectorProtocol;
+import com.nexus.io.ResonanceCrystals.VectorDisplacement;
 
 public class NexusItemRegistry 
 {
@@ -24,10 +25,10 @@ public class NexusItemRegistry
 		EchoicLocator locatorObject = new EchoicLocator();
 		itemRegistry.put(locatorObject.getInternalName(), locatorObject);
 		
-		GravitasOrdinance gravityObject = new GravitasOrdinance();
+		NullifyGravity gravityObject = new NullifyGravity();
 		itemRegistry.put(gravityObject.getInternalName(), gravityObject);
 		
-		VectorProtocol vectorObject = new VectorProtocol();
+		VectorDisplacement vectorObject = new VectorDisplacement();
 		itemRegistry.put(vectorObject.getInternalName(), vectorObject);
 		
 		RiftPostulate riftObject = new RiftPostulate();
@@ -35,5 +36,8 @@ public class NexusItemRegistry
 		
 		ThermalDisruption smeltObject = new ThermalDisruption();
 		itemRegistry.put(smeltObject.getInternalName(), smeltObject);
+		
+		EchoicDisruption damageObject = new EchoicDisruption();
+		itemRegistry.put(damageObject.getInternalName(), damageObject);
 	}
 }

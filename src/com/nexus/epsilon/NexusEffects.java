@@ -1,5 +1,8 @@
 package com.nexus.epsilon;
 
+import org.bukkit.Location;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -25,5 +28,10 @@ public class NexusEffects
 		{
 			((LivingEntity) entity).addPotionEffect(new PotionEffect(effectType, duration, intensity));
 		}
+	}
+	
+	public static void playSound(Player source, Location loc, Sound sound, SoundCategory soundCategory, float magnitude, float magnitude2) 
+	{
+		source.getPlayer().playSound(loc, sound,  soundCategory,  magnitude, magnitude2);
 	}
 }

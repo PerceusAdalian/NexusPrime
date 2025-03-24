@@ -6,7 +6,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.nexus.alpha.NexusProper;
 
-public class NexusTimer
+public class NexusAdvancedTimer
 {
 
 	private BukkitRunnable timerRunnable; // Timer that can be reset
@@ -19,7 +19,7 @@ public class NexusTimer
     *
     * @throws IllegalArgumentException Thrown if ticks < 0
     */
-    public NexusTimer(Runnable runnable, long ticks) 
+    public NexusAdvancedTimer(Runnable runnable, long ticks) 
     {
         this.targetTask = Objects.requireNonNull(runnable); // Make sure that the task is not null
 

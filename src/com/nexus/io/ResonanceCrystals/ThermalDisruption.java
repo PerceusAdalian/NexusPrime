@@ -55,8 +55,7 @@ public class ThermalDisruption extends AbstractResonanceCrystal
 					}
 				}
 				
-//				Bukkit.getScheduler().runTask(NexusProper.instance, p::updateInventory);
-				p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_WORK_WEAPONSMITH, SoundCategory.MASTER, 1, 1);
+				p.playSound(p.getLocation(), Sound.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.MASTER, 1, 1);
 				NexusPrintUtils.Print(p, "&r&7&oThe crystal lights ablaze and fizzles to ash..");
 				NexusItemCollector.remove(e);
 				return true;
@@ -79,8 +78,7 @@ public class ThermalDisruption extends AbstractResonanceCrystal
 					newStack.setItemMeta(stack.getItemMeta());
 				}
 				p.getInventory().setItemInOffHand(newStack);
-//				Bukkit.getScheduler().runTask(NexusProper.instance, p::updateInventory);
-				p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_WORK_WEAPONSMITH, SoundCategory.MASTER, 1, 1);
+				p.playSound(p.getLocation(), Sound.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.MASTER, 1, 1);
 				NexusPrintUtils.Print(p, "&r&7&oThe crystal lights ablaze and fizzles to ash..");
 				NexusItemCollector.remove(e);
 				return true;

@@ -14,12 +14,12 @@ import com.nexus.epsilon.RayCastEntity;
 
 //Not yet added
 
-public class GravitasOrdinance extends AbstractResonanceCrystal
+public class NullifyGravity extends AbstractResonanceCrystal
 {
 
-	public GravitasOrdinance() 
+	public NullifyGravity() 
 	{
-		super("Resonance Crystal: Gravitas Ordinance", "distort_gravity", Material.ECHO_SHARD, true, true,
+		super("Resonance Crystal: Nullify Gravity", "nullify_gravity_crystal", Material.ECHO_SHARD, true, true,
 				"&r&f&lRight-Click&r&f to distort gravity for you or others.",
 				"&r&f&lTarget Range&r&f: &b&o25 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f");
 	}
