@@ -16,7 +16,7 @@ public class NexusParticles
 		source.getWorld().spawnParticle(p, v.getX(), v.getY() + heightOffset, v.getZ(), 0, 0, 0, 0, data);
 	}
 	
-	public static <T> void drawLine(Location source, Location target, int interval, double heightOffset, Particle p, @Nullable T data) 
+	public static <T> void drawLine(Location source, Location target, double interval, double heightOffset, Particle p, @Nullable T data) 
 	{
 		if (!source.getWorld().equals(target.getWorld())) 
 		{
@@ -179,7 +179,7 @@ public class NexusParticles
         });
     }
 	
-	public static <T> void drawCylinder(Location location, double radius, int density, int stacks, double distance, double heightOffset, Particle particle, T data)
+	public static <T> void drawCylinder(Location location, double radius, int stacks, int density, double distance, double heightOffset, Particle particle, T data)
     {
         Location buffer = location.clone();
 
@@ -201,7 +201,20 @@ public class NexusParticles
         }
     }
 	
-	public static <T> void drawVerticalVortex(Location location, double radius, int layers, double distanceBetweenLayers, double deltaangle, int density, double heightOffset, Particle particle, T data)
+	/**
+	 * 
+	 * @param <T> @Nullable Generic data type for particle data.
+	 * @param location Source location.
+	 * @param radius X-coordinate declaration.
+	 * @param layers Y-coordinate declaration.
+	 * @param distanceBetweenLayers How many blocks apart from each layer.
+	 * @param deltaangle How steep the vortext is.
+	 * @param density How many particles to spawn per layer.
+	 * @param heightOffset Determines how far away vertically from the source the vortex begins.
+	 * @param particle Particle type.
+	 * @param data Particle data.
+	 */
+	public static <T> void drawVerticalVortex(Location location, double radius, double layers, double distanceBetweenLayers, double deltaangle, int density, double heightOffset, Particle particle, T data)
     {
         for (double i = 0; i < layers; i += 1)
         {

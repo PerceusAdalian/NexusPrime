@@ -1,0 +1,38 @@
+package com.nexus.epsilon;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Player;
+import org.bukkit.util.RayTraceResult;
+
+public class NexusWorldEvents 
+{
+	public static List<Block> getNearbyBlocks(Location origin, int radius) 
+	{
+		List<Block> locations = new ArrayList<>();
+		for (int iy = -radius; iy <= radius; iy++)
+		{
+			for (int ix = -radius; ix <= radius; ix++)
+			{
+				for (int iz = -radius; iz <= radius; iz++)
+				{
+					Location newLoc = origin.clone().add(ix,iy,iz);
+					locations.add(newLoc.getBlock());
+				}
+			}
+		}
+		return locations;
+	}
+	
+	public static Block rayTraceBlock(Player p, int range) 
+	{
+		RayTraceResult result = p.getWorld().rayTraceBlocks(p.getEyeLocation().add(p.getEyeLocation().getDirection().normalize().multiply(2)),p.getEyeLocation().getDirection(),range);
+	    
+	    if(result == null || result.getHitEntity() == null) return null;
+	    return result.getHitBlock().getRelative(BlockFace.UP);
+	}
+}

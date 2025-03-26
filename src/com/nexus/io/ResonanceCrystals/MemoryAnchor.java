@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
@@ -16,6 +17,7 @@ import org.bukkit.potion.PotionEffectType;
 import com.nexus.alpha.NexusProper;
 import com.nexus.epsilon.NexusEffects;
 import com.nexus.epsilon.NexusItemCollector;
+import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 
@@ -38,18 +40,18 @@ public class MemoryAnchor extends AbstractResonanceCrystal
 			if (!pStoredLocation.containsKey(p.getUniqueId())) 
 			{
 				pStoredLocation.put(p.getUniqueId(), p.getLocation());
-				p.playSound(p.getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.MASTER, 1, 1);
-				p.sendMessage(NexusPrintUtils.ColorParser("&7&oThe crystal begins to glow.."));
+				p.playSound(p.getLocation(), Sound.BLOCK_SCULK_SENSOR_CLICKING, SoundCategory.MASTER, 1, 1);
+				NexusPrintUtils.Print(p, "&7&oThe crystal begins to glow..");
 				return true;
 			}
 			pStoredLocation.remove(p.getUniqueId());
 			pStoredLocation.put(p.getUniqueId(), p.getLocation());
-			p.playSound(p.getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.MASTER, 1, 1);
-			p.sendMessage(NexusPrintUtils.ColorParser("&7&oThe crystal shows a different memory.."));
+			p.playSound(p.getLocation(), Sound.BLOCK_SCULK_SENSOR_CLICKING, SoundCategory.MASTER, 1, 1);
+			NexusPrintUtils.Print(p, "&7&oThe crystal shows a different memory..");
 			return true;
 		}
 		
-		if (NexusPlayerActions.shiftRightClickAir(e)) 
+		if (NexusPlayerActions.rightClickAir(e)) 
 		{
 			if (pStoredLocation.containsKey(p.getUniqueId())) 
 			{					
@@ -57,14 +59,17 @@ public class MemoryAnchor extends AbstractResonanceCrystal
 				Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
 				{
 					p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, SoundCategory.MASTER, 1, 1);
-					p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
+					p.playSound(p.getLocation(), Sound.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.MASTER, 1, 1);
+					NexusParticles.drawVerticalVortex(p.getLocation(), p.getWidth()+0.5, p.getHeight()+2, 0.5, 3, 10, 0, Particle.SCULK_SOUL, null);
 					NexusEffects.add(p, PotionEffectType.NAUSEA, 100, 0);
-					p.sendMessage(NexusPrintUtils.ColorParser("&7&oThe crystal shatters.. You are as before in time."));
+					NexusEffects.add(p, PotionEffectType.DARKNESS, 100, 2);
+					NexusPrintUtils.Print(p, "&7&oThe crystal shatters.. You are as before in time.");
 					pStoredLocation.remove(p.getUniqueId());					
 				}, 10);
 				NexusItemCollector.remove(e);
 				return true;				
 			}
+			NexusPrintUtils.Print(p, "&r&7&oThe crystal resonates, but nothing happens..");
 			return false;
 		}
 		return false;

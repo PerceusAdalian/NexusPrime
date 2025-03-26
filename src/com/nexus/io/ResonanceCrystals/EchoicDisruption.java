@@ -47,7 +47,7 @@ public class EchoicDisruption extends AbstractResonanceCrystal
 				{
 					p.playSound(target.getLocation(), Sound.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.MASTER, 1, 1);
 					NexusEffects.add(target, PotionEffectType.WITHER, 300, 2);
-					NexusParticles.drawVerticalVortex(target.getLocation(), target.getWidth(), (int) (target.getHeight() + 2), 1, 2, 5, 0, Particle.SCULK_SOUL, null);
+					NexusParticles.drawVerticalVortex(target.getLocation(), target.getWidth()+0.5, target.getHeight()+1, 0.5, 2, 10, 0, Particle.SCULK_SOUL, null);
 					((LivingEntity) target).damage((((LivingEntity) target).getHealth()*(20d/100d)));
 				}, 20);
 				NexusPrintUtils.Print(p,"&r&7&oThe crystal bursts forwad, disintegrating..");

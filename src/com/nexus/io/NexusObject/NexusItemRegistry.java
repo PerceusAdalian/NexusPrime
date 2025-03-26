@@ -3,10 +3,11 @@ package com.nexus.io.NexusObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nexus.io.ResonanceCrystals.EchoicLocator;
-import com.nexus.io.ResonanceCrystals.NullifyGravity;
-import com.nexus.io.ResonanceCrystals.MemoryAnchor;
+import com.nexus.io.ResonanceCrystals.AdvanceLife;
 import com.nexus.io.ResonanceCrystals.EchoicDisruption;
+import com.nexus.io.ResonanceCrystals.EchoicLocator;
+import com.nexus.io.ResonanceCrystals.MemoryAnchor;
+import com.nexus.io.ResonanceCrystals.NullifyGravity;
 import com.nexus.io.ResonanceCrystals.RiftPostulate;
 import com.nexus.io.ResonanceCrystals.ThermalDisruption;
 import com.nexus.io.ResonanceCrystals.VectorDisplacement;
@@ -39,5 +40,8 @@ public class NexusItemRegistry
 		
 		EchoicDisruption damageObject = new EchoicDisruption();
 		itemRegistry.put(damageObject.getInternalName(), damageObject);
+		
+		AdvanceLife lifeObject = new AdvanceLife();
+		itemRegistry.put(lifeObject.getInternalName(), lifeObject);
 	}
 }

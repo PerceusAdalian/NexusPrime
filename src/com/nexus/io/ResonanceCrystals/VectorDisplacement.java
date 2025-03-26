@@ -45,7 +45,7 @@ public class VectorDisplacement extends AbstractResonanceCrystal
 		if (NexusPlayerActions.shiftRightClickAir(e)) //This doesn't work as planned..
 		{
 			NexusParticles.drawLine(target.getLocation(), p.getLocation(), 1, 0.5, Particle.END_ROD, null);
-			target.setVelocity(p.getLocation().toVector().subtract(target.getLocation().toVector()).normalize().multiply(10));
+			target.setVelocity(p.getLocation().toVector().subtract(target.getLocation().toVector()).normalize().multiply(5));
 			double distanceDamage = target.getLocation().toVector().distance(p.getLocation().toVector()) * 1.25;
 			((LivingEntity) target).damage(distanceDamage, p);
 			NexusPrintUtils.Print(p, "&r&7&oThe crystal rips the target towards you, shattering..");
@@ -57,7 +57,7 @@ public class VectorDisplacement extends AbstractResonanceCrystal
 		{
 			NexusParticles.drawLine(p.getLocation(), target.getLocation(), 1, 0.5, Particle.END_ROD, null);
 			NexusParticles.drawLine(p.getLocation(), target.getLocation(), 4, 0.5, Particle.SONIC_BOOM, null);
-			p.setVelocity(target.getLocation().toVector().subtract(p.getLocation().toVector()).normalize().multiply(5));
+			p.setVelocity(target.getLocation().toVector().subtract(p.getLocation().toVector()).normalize().multiply(2.5));
 			double distanceDamage = target.getLocation().toVector().distance(p.getLocation().toVector()) * 1.25;
 			((LivingEntity) target).damage(distanceDamage, p);
 			NexusPrintUtils.Print(p, "&r&7&oYou rush towards the target -- the crystal shatters..");

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
@@ -11,6 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.nexus.epsilon.NexusItemCollector;
+import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
@@ -54,7 +56,7 @@ public class ThermalDisruption extends AbstractResonanceCrystal
 						p.getInventory().setItem(i, newStack);
 					}
 				}
-				
+				NexusParticles.drawVerticalVortex(p.getLocation(), p.getWidth(), p.getHeight(), 0.5, 3, 10, 0, Particle.SCULK_SOUL, null);
 				p.playSound(p.getLocation(), Sound.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.MASTER, 1, 1);
 				NexusPrintUtils.Print(p, "&r&7&oThe crystal lights ablaze and fizzles to ash..");
 				NexusItemCollector.remove(e);
@@ -78,6 +80,7 @@ public class ThermalDisruption extends AbstractResonanceCrystal
 					newStack.setItemMeta(stack.getItemMeta());
 				}
 				p.getInventory().setItemInOffHand(newStack);
+				NexusParticles.drawVerticalVortex(p.getLocation(), p.getWidth(), p.getHeight(), 0.5, 3, 10, 0, Particle.SCULK_SOUL, null);
 				p.playSound(p.getLocation(), Sound.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.MASTER, 1, 1);
 				NexusPrintUtils.Print(p, "&r&7&oThe crystal lights ablaze and fizzles to ash..");
 				NexusItemCollector.remove(e);
