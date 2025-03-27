@@ -12,10 +12,10 @@ import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 
-public class RiftPostulate extends AbstractResonanceCrystal
+public class PocketDimension extends AbstractResonanceCrystal
 {
 
-	public RiftPostulate() 
+	public PocketDimension() 
 	{
 		super("Resonance Crystal: Pocket Dimension", "pocket_dimension", Material.ECHO_SHARD, true, true, 
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),

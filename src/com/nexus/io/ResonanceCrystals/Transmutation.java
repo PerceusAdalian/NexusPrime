@@ -18,12 +18,12 @@ import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
 
-public class ThermalDisruption extends AbstractResonanceCrystal
+public class Transmutation extends AbstractResonanceCrystal
 {
 
-	public ThermalDisruption() 
+	public Transmutation() 
 	{
-		super("Resonance Crystal: Thermal Disruption", "thermal_disruption_crystal", Material.ECHO_SHARD, true, true,
+		super("Resonance Crystal: Trasmutation", "transmutation_crystal", Material.ECHO_SHARD, true, true,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lRight-Click&r&f to smelt the ore in one's offhand.",
 				"&r&f&lShift_Right-Click&r&f to smelt the ores in one's inventory.");

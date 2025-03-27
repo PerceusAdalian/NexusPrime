@@ -21,10 +21,10 @@ import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.NexusStandardTimer;
 
-public class EchoicLocator extends AbstractResonanceCrystal
+public class EchoicSonar extends AbstractResonanceCrystal
 {
 
-	public EchoicLocator() 
+	public EchoicSonar() 
 	{
 		super("Resonance Crystal: Echoic Sonar", "sonar_crystal", Material.ECHO_SHARD, true, true,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
