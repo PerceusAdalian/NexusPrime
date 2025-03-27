@@ -9,9 +9,12 @@ public class NexusItemCollector
 {
 	public static void remove(PlayerInteractEvent e) 
 	{
-		Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+		if (NexusProper.debug == false) 
 		{
-			e.getItem().setAmount(e.getItem().getAmount() - 1);
-		}, 1);
+			Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+			{
+				e.getItem().setAmount(e.getItem().getAmount() - 1);
+			}, 1);			
+		}
 	}
 }

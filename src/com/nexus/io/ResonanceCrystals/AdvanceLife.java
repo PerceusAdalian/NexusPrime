@@ -18,6 +18,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.nexus.alpha.NexusProper;
 import com.nexus.epsilon.NexusItemCollector;
+import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
@@ -32,6 +33,7 @@ public class AdvanceLife extends AbstractResonanceCrystal
 	public AdvanceLife() 
 	{
 		super("Resonance Crystal: Advance Life", "advance_life_crystal", Material.ECHO_SHARD, true, true,
+				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY, NexusObjectAbilityType.OFFENSIVE),
 				"&r&f&lRight-Click&r&f to rapidly grow nearby crops.",
 				"&r&f&lEffect Radius&r&f: 30 &b&ometers&r&f",
 				"&r&f&lShift_Right-Click&r&f to &c&odamage&r&f target and &a&oheal&r&f self over time.",

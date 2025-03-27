@@ -12,7 +12,7 @@ public class NexusParticles
 {
 	public static <T> void drawPoint(Location source, Particle p, double heightOffset, @Nullable T data) 
 	{
-		Vector v = source.toVector().normalize();
+		Vector v = source.toVector();
 		source.getWorld().spawnParticle(p, v.getX(), v.getY() + heightOffset, v.getZ(), 0, 0, 0, 0, data);
 	}
 	

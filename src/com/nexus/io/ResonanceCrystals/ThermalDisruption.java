@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.nexus.epsilon.NexusItemCollector;
+import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
@@ -23,6 +24,7 @@ public class ThermalDisruption extends AbstractResonanceCrystal
 	public ThermalDisruption() 
 	{
 		super("Resonance Crystal: Thermal Disruption", "thermal_disruption_crystal", Material.ECHO_SHARD, true, true,
+				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lRight-Click&r&f to smelt the ore in one's offhand.",
 				"&r&f&lShift_Right-Click&r&f to smelt the ores in one's inventory.");
 	}

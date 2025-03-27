@@ -17,6 +17,7 @@ import org.bukkit.potion.PotionEffectType;
 import com.nexus.alpha.NexusProper;
 import com.nexus.epsilon.NexusEffects;
 import com.nexus.epsilon.NexusItemCollector;
+import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
@@ -26,6 +27,7 @@ public class MemoryAnchor extends AbstractResonanceCrystal
 	public MemoryAnchor() 
 	{
 		super("Resonance Crystal: Memory Anchor", "anchor_crystal", Material.ECHO_SHARD, true, true,
+				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lShift_Right-Click&r&f to set a &b&orecall&r&f.",
 				"&r&f&lRight-Click&r&f to &b&orecall&r&f to set location.");
 	}

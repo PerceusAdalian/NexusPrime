@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.nexus.epsilon.NexusItemCollector;
+import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
@@ -19,6 +20,7 @@ public class VectorDisplacement extends AbstractResonanceCrystal
 	public VectorDisplacement() 
 	{
 		super("Resonance Crystal: Vector Displacement", "vector_displacement_crystal", Material.ECHO_SHARD, true, true,
+				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.OFFENSIVE),
 				"&r&f&lRight-Click&r&f to rush towards a target.",
 				"&r&f&lShift_Right-Click&r&f to pull a target towards you.",
 				"&r&fDeal &c&odamage&r&f based on distance traveled.",

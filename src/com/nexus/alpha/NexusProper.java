@@ -28,7 +28,7 @@ public class NexusProper extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new EchoTagDespawnHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new NexusObjectCastHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new NexusObjectDropHandler(), instance);
-		
+		Bukkit.getPluginManager().registerEvents(new OnJoin(), instance);
 		NexusItemRegistry.itemInit();
 		OreValues.init();
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");

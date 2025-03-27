@@ -50,4 +50,13 @@ public class NexusPrintUtils
 	{
 		Print("&f{&bν&r&f} "+msg+ " &r&f/&b?&f//");
 	}
+	
+	public static String assignAbilityType(NexusObjectAbilityType type, NexusObjectAbilityType type2) 
+	{
+		return ColorParser("&r&f&lAbility Type&r&f: {"+ type.getAbilityType() + "&r&f | " + type2.getAbilityType() + "&r&f}");
+	}
+	public static String assignAbilityType(NexusObjectAbilityType type) 
+	{
+		return ColorParser("&r&f&lAbility Type&r&f: {"+type.getAbilityType()+"&r&f}");
+	}
 }
