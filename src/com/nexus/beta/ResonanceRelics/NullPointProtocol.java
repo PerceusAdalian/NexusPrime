@@ -1,0 +1,108 @@
+package com.nexus.beta.ResonanceRelics;
+
+import java.util.Optional;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Color;
+import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+
+import com.nexus.alpha.NexusProper;
+import com.nexus.epsilon.NexusObjectAbilityType;
+import com.nexus.epsilon.NexusParticles;
+import com.nexus.epsilon.NexusPlayerActions;
+import com.nexus.epsilon.NexusPrintUtils;
+import com.nexus.epsilon.NexusWorldEvents;
+import com.nexus.epsilon.OreValues;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
+
+public class NullPointProtocol extends AbstractResonanceObject
+{
+
+	public NullPointProtocol() 
+	{
+		super("Null-Point Protocol", "mining_relic", Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE, true, false, true, 
+		NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
+		"&r&f&lRight-Click&r&f to breakdown target block and drop its resource.",
+		"&r&f&lShift_Right-Click&r&f to breakdown target block and smelt if applicable.");
+	}
+
+	@Override
+	public boolean Cast(PlayerInteractEvent e) 
+	{
+		Player p = e.getPlayer();
+		
+		if (NexusPlayerActions.shiftRightClickBlock(e)) 
+		{
+			Block target = e.getClickedBlock();
+			
+			boolean hasBlockType = Optional.ofNullable(NexusWorldEvents.rayTraceBlock(p, 4.5))
+			        .map(Block::getType)
+			        .map(OreValues.validBlockTypes::containsKey)
+			        .orElse(false);
+			
+			if (target.getType().equals(Material.AIR) || target.getType().equals(Material.BEDROCK)) 
+			{
+				return false;
+			}
+
+			if (hasBlockType) 
+			{
+				if (target != null && OreValues.validBlockTypes.containsKey(target.getType())) 
+				{
+					p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
+					NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, Color.TEAL);
+					Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+					{				
+						Material newMaterial = OreValues.validMaterials.get(target.getType());
+						ItemStack newStack = new ItemStack(newMaterial);
+						NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
+						target.setType(Material.AIR);
+						target.getWorld().dropItemNaturally(target.getLocation(), newStack);
+					}, 1);
+					return true;
+				}
+			}
+			p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
+			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, Color.TEAL);
+			Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+			{				
+				NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
+				target.breakNaturally();
+			}, 1);
+			return true;
+		}
+		
+		if (NexusPlayerActions.rightClickBlock(e)) 
+		{
+			Block target = e.getClickedBlock();
+			
+			if (target == null)
+			{
+				return false;
+			}
+			
+			if (target.getType().equals(Material.AIR) || target.getType().equals(Material.BEDROCK)) 
+			{
+				return false;
+			}
+			
+			p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
+			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, null);
+			Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+			{				
+				NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
+				target.breakNaturally();
+			}, 1);
+			return true;
+		}
+		
+		return false;
+	}
+}

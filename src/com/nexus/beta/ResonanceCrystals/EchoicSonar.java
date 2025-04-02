@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -20,13 +20,14 @@ import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.NexusStandardTimer;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class EchoicSonar extends AbstractResonanceCrystal
+public class EchoicSonar extends AbstractResonanceObject
 {
 
 	public EchoicSonar() 
 	{
-		super("Resonance Crystal: Echoic Sonar", "sonar_crystal", Material.ECHO_SHARD, true, true,
+		super("Echoic Sonar", "sonar_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lRight-Click&r&f to reveal nearby &r&d&oEntities&r&f.", 
 				"&r&f&lRange&r&f: &b&o30 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f",

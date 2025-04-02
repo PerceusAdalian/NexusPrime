@@ -28,7 +28,7 @@ public class NexusWorldEvents
 		return locations;
 	}
 	
-	public static Block rayTraceBlock(Player p, int range) 
+	public static Block rayTraceBlock(Player p, double range) 
 	{
 		RayTraceResult result = p.getWorld().rayTraceBlocks(p.getEyeLocation().add(p.getEyeLocation().getDirection().normalize().multiply(2)),p.getEyeLocation().getDirection(),range);
 	    

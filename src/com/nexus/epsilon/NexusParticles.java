@@ -222,6 +222,32 @@ public class NexusParticles
         }
     }
 	
+	/**
+	 * @param origin Location to place the spiral.
+	 * @param tBound Controls width and length increment of the spiral. Standard formulation for "t" is 6*PI rads.
+	 * @param spiralHeight Controls the height limit for the spiral.
+	 * @param heightOffset Controls the initial height of the spiral. (i.e. 1.0 will start the spiral 1 block above the origin.)
+	 * @param particle Particle type.
+	 * @param data Particle data.
+	 */
+	public static <T> void drawSpiralVortext(Location origin, double tBound, double spiralHeight, double heightOffset, Particle particle, T data) 
+	{
+		if (tBound > 6.0 || tBound < 0.0) tBound = 6.0;
+		double tLimit = tBound * Math.PI;
+		double stepSize = tLimit / 100.0;
+		
+		for (double t = 0; t <= tLimit; t+=stepSize) 
+		{
+			double r = Math.exp(-0.1 * t);
+			double x = r * Math.cos(t);
+			double y = r * Math.sin(t);
+			double z = spiralHeight * t;
+			
+			Location pLocation = origin.clone().add(x, z, y);
+			origin.getWorld().spawnParticle(particle, pLocation, 0, 0, 0, 0, data);
+		}
+	}
+	
 	public static <T> void drawWisps(Location location, double domain, double range, int density, Particle particle, T data) 
 	{
 		/*
@@ -238,7 +264,6 @@ public class NexusParticles
 	        double y = location.getY() + (rand.nextDouble() * range);
 	        double z = location.getZ() + (rand.nextDouble() * 2 - 1) * domain;
 			w.spawnParticle(particle, new Location(w,x,y,z), 0, 0, 0, 0, data);
-			
 		}
 	}
 }

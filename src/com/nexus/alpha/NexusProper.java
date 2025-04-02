@@ -3,13 +3,17 @@ package com.nexus.alpha;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.nexus.beta.EchoTag.EchoTagAssignmentHandler;
+import com.nexus.beta.EchoTag.EchoTagDespawnHandler;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
-import com.nexus.io.EchoTag.EchoTagAssignmentHandler;
-import com.nexus.io.EchoTag.EchoTagDespawnHandler;
 import com.nexus.io.NexusObject.NexusItemRegistry;
 import com.nexus.io.NexusObject.NexusObjectCastHandler;
 import com.nexus.io.NexusObject.NexusObjectDropHandler;
+import com.perceus.beta.NexusObjectRecipes.NullPointProtocolRecipe;
+import com.perceus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
+import com.perceus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
+import com.perceus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
 
 public class NexusProper extends JavaPlugin
 {
@@ -29,9 +33,18 @@ public class NexusProper extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new NexusObjectCastHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new NexusObjectDropHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new OnJoin(), instance);
+		
 		NexusItemRegistry.itemInit();
 		NexusPrintUtils.NexusConsolePrint("Nexus Objects Loaded: &e"+NexusItemRegistry.itemRegistry.size());
-		OreValues.init();
+		
+		OreValues.initMaterials();
+		OreValues.initBlockTypes();
+		
+		NullPointProtocolRecipe.register();
+		OrdinalProtocolRecipe.register();
+		ReticleProtocolRecipe.register();
+		ReconfigurationProtocolRecipe.register();
+
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 	}
 	
@@ -45,9 +58,10 @@ public class NexusProper extends JavaPlugin
 /*
  * Project Notes:
  * 		
- * if (ProjectEchoesOfLumina.debug == true){}
- URGENT >> Todo: Some items' internal names aren't being retrieved properly via NexusObjectCasterListener's debug script. Find out why MemoryAnchor.java's internal name is being fetched, but not EchoicLocator.java's.
- URGENT >> Todo: Make it so that you can transfer ownership of echo bound items to other players.
+ *  Ordinal Protocol still won't properly record and teleport player to a set respawn location due to 
+ *  #setBestSpawnLocation() being deprecated..
+ *  
+ *  Null Point Protocol will not fire and break blocks.. debug 
  */
 
 /*

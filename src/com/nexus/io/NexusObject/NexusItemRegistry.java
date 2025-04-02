@@ -6,14 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.nexus.io.ResonanceCrystals.AdvanceLife;
-import com.nexus.io.ResonanceCrystals.EchoicDisruption;
-import com.nexus.io.ResonanceCrystals.EchoicSonar;
-import com.nexus.io.ResonanceCrystals.MemoryAnchor;
-import com.nexus.io.ResonanceCrystals.NullifyGravity;
-import com.nexus.io.ResonanceCrystals.PocketDimension;
-import com.nexus.io.ResonanceCrystals.Transmutation;
-import com.nexus.io.ResonanceCrystals.VectorDisplacement;
+import com.nexus.beta.ResonanceCrystals.AdvanceLife;
+import com.nexus.beta.ResonanceCrystals.EchoicDisruption;
+import com.nexus.beta.ResonanceCrystals.EchoicSonar;
+import com.nexus.beta.ResonanceCrystals.MemoryAnchor;
+import com.nexus.beta.ResonanceCrystals.NullifyGravity;
+import com.nexus.beta.ResonanceCrystals.PocketDimension;
+import com.nexus.beta.ResonanceCrystals.Transmutation;
+import com.nexus.beta.ResonanceCrystals.VectorDisplacement;
+import com.nexus.beta.ResonanceRelics.NullPointProtocol;
+import com.nexus.beta.ResonanceRelics.OrdinalProtocol;
+import com.nexus.beta.ResonanceRelics.ReconfigurationProtocol;
+import com.nexus.beta.ResonanceRelics.ReticleProtocol;
 
 /**
  * @Documented NexusItemRegistry A class to handle Nexus Objects for generation, debugging, etc.
@@ -37,7 +41,13 @@ public class NexusItemRegistry
             PocketDimension.class, 
             Transmutation.class, 
             EchoicDisruption.class, 
-            AdvanceLife.class);
+            AdvanceLife.class,
+            
+        	//Resonance Relics
+            NullPointProtocol.class,
+            ReconfigurationProtocol.class,
+            ReticleProtocol.class,
+            OrdinalProtocol.class);
         
         for (Class<? extends AbstractNexusObject> clazz : itemClasses) 
         {

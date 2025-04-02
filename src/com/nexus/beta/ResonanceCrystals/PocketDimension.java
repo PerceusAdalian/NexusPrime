@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -11,13 +11,14 @@ import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class PocketDimension extends AbstractResonanceCrystal
+public class PocketDimension extends AbstractResonanceObject
 {
 
 	public PocketDimension() 
 	{
-		super("Resonance Crystal: Pocket Dimension", "pocket_dimension", Material.ECHO_SHARD, true, true, 
+		super("Pocket Dimension", "pocket_dimension", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lRight-Click&r&f to open a small rift that stores items.");
 	}

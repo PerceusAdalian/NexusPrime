@@ -17,12 +17,14 @@ public abstract class AbstractNexusObject
 {
 	public static final NamespacedKey nexusObject = new NamespacedKey(NexusProper.instance, "nexus_object");
 	public static final NamespacedKey resonanceCrystalObject = new NamespacedKey(NexusProper.instance, "crystal_object");
+	public static final NamespacedKey resonanceRelicObject = new NamespacedKey(NexusProper.instance, "relic_object");
 	private String name;
 	private String internalName;
 	private String[] itemDescription;
 	private Material material;
 	private boolean isEnchanted = false;
 	private boolean isCrystal = false;
+	private boolean isRelic = false;
 	
 	public AbstractNexusObject(String name, String internalName, Material material, boolean isEnchanted, String...itemDescription) 
 	{
@@ -77,7 +79,11 @@ public abstract class AbstractNexusObject
 	{
 		return isCrystal;
 	}
-
+	public boolean isRelic() 
+	{
+		return isRelic;
+	}
+	
 	public static NamespacedKey getNexusobject() 
 	{
 		return nexusObject;
@@ -109,7 +115,7 @@ public abstract class AbstractNexusObject
 		
 		if (this.isCrystal()) 
 		{
-			meta.setDisplayName(NexusPrintUtils.ColorParser("&r&3&ko&r&f&l "+name+" &r&3&ko&r&f&l"));
+			meta.setDisplayName(NexusPrintUtils.ColorParser("&r&3&ko&r&f&l Resonance Crystal: "+name+" &r&3&ko&r&f&l"));
 			lore.add(NexusPrintUtils.ColorParser("&r&fA highly unstable form of &e&l&oEchoic Energy&r&f."));
 			lore.add("\n");
 			for (String line : itemDescription) 
@@ -119,11 +125,27 @@ public abstract class AbstractNexusObject
 			lore.add("\n");
 			lore.add(NexusPrintUtils.ColorParser("&r&fThis item is &d&ostackable&r&f and &c&l&odestroyed&r&f upon use."));
 			lore.add("\n");
-			lore.add(NexusPrintUtils.ColorParser("&r&7&oNexus Object ID: " + getInternalNameAsID(internalName)));
+			lore.add(NexusPrintUtils.ColorParser("&r&7&oNexus Object ID: C_" + getInternalNameAsID(internalName)));
 			meta.getPersistentDataContainer().set(resonanceCrystalObject, PersistentDataType.STRING, internalName.toString());
 		}
 		
-		if (this.isCrystal() == false) 
+		if (this.isRelic()) 
+		{
+			meta.setDisplayName(NexusPrintUtils.ColorParser("&r&e&ko&r&f&l Resonance Relic: "+name+" &r&e&ko&r&f&l"));
+			lore.add(NexusPrintUtils.ColorParser("&r&fA stabilized form of &e&l&oEchoic Energy&r&f."));
+			lore.add("\n");
+			for (String line : itemDescription) 
+			{
+				lore.add(NexusPrintUtils.ColorParser("&r&f" + line) + "\n");
+			}
+			lore.add("\n");
+			lore.add(NexusPrintUtils.ColorParser("&r&fThis item may be used &b&oindefinitely&r&f."));
+			lore.add("\n");
+			lore.add(NexusPrintUtils.ColorParser("&r&7&oNexus Object ID: R_" + getInternalNameAsID(internalName)));
+			meta.getPersistentDataContainer().set(resonanceRelicObject, PersistentDataType.STRING, internalName.toString());
+		}
+		
+		if (this.isCrystal() == false && this.isRelic() == false) 
 		{
 			meta.setDisplayName(NexusPrintUtils.ColorParser("&r&7&ko&r&f&l "+name+" &r&7&ko&r&f&l"));	
 			for (String line : itemDescription) 
@@ -131,7 +153,7 @@ public abstract class AbstractNexusObject
 				lore.add(NexusPrintUtils.ColorParser("&r&f" + line) + "\n");
 			}
 			lore.add("\n");
-			lore.add(NexusPrintUtils.ColorParser("&r&7&oNexus Object ID: " + getInternalNameAsID(internalName)));			
+			lore.add(NexusPrintUtils.ColorParser("&r&7&oNexus Object ID: N_" + getInternalNameAsID(internalName)));			
 		}
 		
 		meta.setLore(lore);

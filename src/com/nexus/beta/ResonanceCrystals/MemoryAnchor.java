@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,12 +21,13 @@ import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class MemoryAnchor extends AbstractResonanceCrystal
+public class MemoryAnchor extends AbstractResonanceObject
 {
 	public MemoryAnchor() 
 	{
-		super("Resonance Crystal: Memory Anchor", "anchor_crystal", Material.ECHO_SHARD, true, true,
+		super("Memory Anchor", "anchor_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lShift_Right-Click&r&f to set a &b&orecall&r&f.",
 				"&r&f&lRight-Click&r&f to &b&orecall&r&f to set location.");

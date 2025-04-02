@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -18,13 +18,14 @@ import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.RayCastEntity;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class EchoicDisruption extends AbstractResonanceCrystal
+public class EchoicDisruption extends AbstractResonanceObject
 {
 
 	public EchoicDisruption() 
 	{
-		super("Resonance Crystal: Echoic Disruption", "echoic_disruption_crystal", Material.ECHO_SHARD, true, true, 
+		super("Echoic Disruption", "echoic_disruption_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.OFFENSIVE),
 				"&r&f&lRight-Click&r&f to emit a sonic boom that blasts a target away.",
 				"&r&f&lRange&r&f: &b10 meters&f | &r&f&lDamage&r&f: HP*10%",
@@ -41,8 +42,6 @@ public class EchoicDisruption extends AbstractResonanceCrystal
 			Entity target = RayCastEntity.getNearest(p, 40);
 			if (target != null && (target instanceof LivingEntity && !(target instanceof Player))) 
 			{
-//				Vector newVector = target.getLocation().getDirection().clone().toBlockVector().add(new Vector(0,5,0)).normalize();
-//					target.setVelocity(newVector.subtract(target.getLocation().toVector()).normalize().multiply(3));
 				Vector newVector = target.getLocation().toVector().add(new Vector(0, 5, 0));
 				Vector direction = newVector.subtract(target.getLocation().toVector()).normalize().multiply(3);
 				p.playSound(p.getLocation(), Sound.ENTITY_WARDEN_SONIC_CHARGE, SoundCategory.MASTER, 1, 1);
@@ -51,7 +50,8 @@ public class EchoicDisruption extends AbstractResonanceCrystal
 				{
 					p.playSound(target.getLocation(), Sound.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.MASTER, 1, 1);
 					NexusParticles.drawLine(target.getLocation(), target.getLocation().add(0,5,0), 2, 0, Particle.SONIC_BOOM, null);
-					NexusParticles.drawVerticalVortex(target.getLocation(), target.getWidth()+0.5, target.getHeight()+1, 1, 4, 20, 1, Particle.SCULK_SOUL, null);
+					NexusParticles.drawSpiralVortext(target.getLocation(), 6, target.getHeight(), 0.5, Particle.SCULK_SOUL, null);
+					NexusParticles.drawVerticalVortex(target.getLocation(), target.getWidth(), target.getHeight(), 2, 3, 20, 0.5, Particle.WARPED_SPORE, null);
 					NexusParticles.drawWisps(target.getLocation(), target.getWidth(), target.getHeight(), 20, Particle.WARPED_SPORE, null);
 					target.setVelocity(direction);
 					

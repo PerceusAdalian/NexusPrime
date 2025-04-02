@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -17,13 +17,14 @@ import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class Transmutation extends AbstractResonanceCrystal
+public class Transmutation extends AbstractResonanceObject
 {
 
 	public Transmutation() 
 	{
-		super("Resonance Crystal: Trasmutation", "transmutation_crystal", Material.ECHO_SHARD, true, true,
+		super("Trasmutation", "transmutation_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY),
 				"&r&f&lRight-Click&r&f to smelt the ore in one's offhand.",
 				"&r&f&lShift_Right-Click&r&f to smelt the ores in one's inventory.");

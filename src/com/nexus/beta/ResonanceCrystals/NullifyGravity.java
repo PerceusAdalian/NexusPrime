@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -20,15 +20,16 @@ import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.NexusStandardTimer;
 import com.nexus.epsilon.RayCastEntity;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
 //Not yet added
 
-public class NullifyGravity extends AbstractResonanceCrystal
+public class NullifyGravity extends AbstractResonanceObject
 {
 
 	public NullifyGravity() 
 	{
-		super("Resonance Crystal: Nullify Gravity", "nullify_gravity_crystal", Material.ECHO_SHARD, true, true,
+		super("Nullify Gravity", "nullify_gravity_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.OFFENSIVE, NexusObjectAbilityType.UTILITY),
 				"&r&f&lRight-Click&r&f to distort gravity for you or others.",
 				"&r&f&lTarget Range&r&f: &b&o25 meters&r&f | &lDuration&r&f: &b&o15 Seconds&r&f",

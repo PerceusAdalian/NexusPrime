@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -13,13 +13,14 @@ import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.RayCastEntity;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class VectorDisplacement extends AbstractResonanceCrystal
+public class VectorDisplacement extends AbstractResonanceObject
 {
 
 	public VectorDisplacement() 
 	{
-		super("Resonance Crystal: Vector Displacement", "vector_displacement_crystal", Material.ECHO_SHARD, true, true,
+		super("Vector Displacement", "vector_displacement_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.OFFENSIVE),
 				"&r&f&lRight-Click&r&f to rush towards a target.",
 				"&r&f&lShift_Right-Click&r&f to pull a target towards you.",

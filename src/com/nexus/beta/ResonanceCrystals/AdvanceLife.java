@@ -1,4 +1,4 @@
-package com.nexus.io.ResonanceCrystals;
+package com.nexus.beta.ResonanceCrystals;
 
 import java.util.List;
 
@@ -25,14 +25,15 @@ import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.NexusStandardTimer;
 import com.nexus.epsilon.NexusWorldEvents;
 import com.nexus.epsilon.RayCastEntity;
+import com.nexus.io.NexusObject.AbstractResonanceObject;
 
-public class AdvanceLife extends AbstractResonanceCrystal
+public class AdvanceLife extends AbstractResonanceObject
 
 {
 
 	public AdvanceLife() 
 	{
-		super("Resonance Crystal: Advance Life", "advance_life_crystal", Material.ECHO_SHARD, true, true,
+		super("Advance Life", "advance_life_crystal", Material.ECHO_SHARD, true, true, false,
 				NexusPrintUtils.assignAbilityType(NexusObjectAbilityType.UTILITY, NexusObjectAbilityType.OFFENSIVE),
 				"&r&f&lRight-Click&r&f to rapidly grow nearby crops.",
 				"&r&f&lEffect Radius&r&f: 30 &b&ometers&r&f",
