@@ -5,15 +5,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nexus.beta.EchoTag.EchoTagAssignmentHandler;
 import com.nexus.beta.EchoTag.EchoTagDespawnHandler;
+import com.nexus.beta.NexusObjectRecipes.NullPointProtocolRecipe;
+import com.nexus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
+import com.nexus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
+import com.nexus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
 import com.nexus.io.NexusObject.NexusItemRegistry;
 import com.nexus.io.NexusObject.NexusObjectCastHandler;
 import com.nexus.io.NexusObject.NexusObjectDropHandler;
-import com.perceus.beta.NexusObjectRecipes.NullPointProtocolRecipe;
-import com.perceus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
-import com.perceus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
-import com.perceus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
 
 public class NexusProper extends JavaPlugin
 {
