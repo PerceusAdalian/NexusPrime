@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.nexus.alpha.NexusProper;
-import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
 
 public class NexusObjectCastHandler implements Listener
@@ -20,28 +19,12 @@ public class NexusObjectCastHandler implements Listener
 	{
 		ItemStack held = e.getPlayer().getInventory().getItem(EquipmentSlot.HAND);
 		
-		if (e.getHand() == null || !e.getHand().equals(EquipmentSlot.HAND)) 
-		{
-			return false;
-		}
-		
-		if (!NexusPlayerActions.rightClickAir(e)) 
-		{
-			return false;
-		}
-		
-		if (held == null || held.getType().equals(Material.AIR)) 
-		{
-			return false;
-		}
-		
-		if (held.getItemMeta() == null || !held.getItemMeta().getPersistentDataContainer().has(AbstractNexusObject.nexusObject, PersistentDataType.STRING))
-		{
-			return false;
-		}
+		if (e.getHand() == null) return false;
+		if (e.getHand().equals(EquipmentSlot.OFF_HAND) || !e.getHand().equals(EquipmentSlot.HAND)) return false;
+		if (held == null || held.getType().equals(Material.AIR)) return false;		
+		if (held.getItemMeta() == null || !held.getItemMeta().getPersistentDataContainer().has(AbstractNexusObject.nexusObject, PersistentDataType.STRING)) return false;
 
-	    
-	    if (NexusItemRegistry.itemRegistry.get(held.getItemMeta().getPersistentDataContainer().get(AbstractNexusObject.nexusObject, PersistentDataType.STRING)).Cast(e)) 
+		if (NexusItemRegistry.itemRegistry.get(held.getItemMeta().getPersistentDataContainer().get(AbstractNexusObject.nexusObject, PersistentDataType.STRING)).Cast(e)) 
 	    {
 	    	e.setCancelled(true);
 			
@@ -49,7 +32,7 @@ public class NexusObjectCastHandler implements Listener
 			{
 
 				NexusPrintUtils.NexusFormatDebug(e.getPlayer(), e.getAction().toString());
-				
+				NexusPrintUtils.NexusFormatDebug(e.getPlayer(), e.getHand().toString());
 				String internalName = null;
 				if (held.getItemMeta() != null) 
 				{

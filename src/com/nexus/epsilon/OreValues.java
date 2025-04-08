@@ -44,5 +44,7 @@ public class OreValues
 		validBlockTypes.put(Material.DEEPSLATE_LAPIS_ORE, Material.LAPIS_LAZULI);
 		validBlockTypes.put(Material.DEEPSLATE_EMERALD_ORE, Material.EMERALD);
 		validBlockTypes.put(Material.DEEPSLATE_REDSTONE_ORE, Material.REDSTONE);
+		
+		validBlockTypes.put(Material.NETHER_GOLD_ORE, Material.GOLD_INGOT);
 	}
 }

@@ -22,7 +22,6 @@ import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
-import com.nexus.epsilon.NexusStandardTimer;
 import com.nexus.epsilon.RayCastEntity;
 import com.nexus.io.NexusObject.AbstractResonanceObject;
 
@@ -56,10 +55,14 @@ public class ReticleProtocol extends AbstractResonanceObject
 				return false;
 			}
 			p.playSound(p.getLocation(), Sound.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.MASTER, 1, 1);
-			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, Color.TEAL);
-			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 3, 6, 60, 3, Particle.ASH, Color.TEAL);
-			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 2, 5, 90, 7, Particle.ASH, Color.TEAL);
-			((Damageable) target).damage(2.5);
+			NexusParticles.drawArcLine(p.getLocation(), target.getLocation(), 0.5, 5, Particle.ASH, null);
+			NexusParticles.drawLine(p.getLocation(), target.getLocation(), 0.5, 0.5, Particle.ASH, null);
+			Bukkit.getScheduler().runTaskLater(NexusProper.instance, () -> 
+			{
+				((Damageable) target).damage(2.5);
+				NexusParticles.drawDisc(target.getLocation(), target.getWidth(), 1, 25, 0.25, Particle.WARPED_SPORE, null);
+				NexusParticles.drawWisps(target.getLocation(), target.getWidth(), target.getHeight(), 4, Particle.SCULK_SOUL, null);
+			}, 40);
 			return true;
 		}
 		
@@ -82,15 +85,6 @@ public class ReticleProtocol extends AbstractResonanceObject
 			arrow.setPickupStatus(PickupStatus.DISALLOWED);
 			
 			p.playSound(p.getLocation(), Sound.ENTITY_SHULKER_SHOOT, SoundCategory.MASTER, 1, 1);
-			
-			NexusStandardTimer.runWithCancel(NexusProper.instance, (r)->
-			{
-				if (arrow.isDead() || arrow.isOnGround()) 
-				{
-					return;
-				}
-				NexusParticles.drawPoint(arrow.getLocation(), Particle.SCULK_CHARGE, 0, 1);
-			}, 1, 40);
 			
 			Bukkit.getScheduler().runTaskLater(NexusProper.instance, () -> 
 			{

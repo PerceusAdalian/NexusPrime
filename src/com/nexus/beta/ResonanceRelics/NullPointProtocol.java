@@ -3,7 +3,6 @@ package com.nexus.beta.ResonanceRelics;
 import java.util.Optional;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -18,7 +17,6 @@ import com.nexus.epsilon.NexusObjectAbilityType;
 import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.epsilon.NexusPrintUtils;
-import com.nexus.epsilon.NexusWorldEvents;
 import com.nexus.epsilon.OreValues;
 import com.nexus.io.NexusObject.AbstractResonanceObject;
 
@@ -42,39 +40,36 @@ public class NullPointProtocol extends AbstractResonanceObject
 		{
 			Block target = e.getClickedBlock();
 			
-			boolean hasBlockType = Optional.ofNullable(NexusWorldEvents.rayTraceBlock(p, 4.5))
+			boolean hasBlockType = Optional.ofNullable(target)
 			        .map(Block::getType)
 			        .map(OreValues.validBlockTypes::containsKey)
 			        .orElse(false);
 			
-			if (target.getType().equals(Material.AIR) || target.getType().equals(Material.BEDROCK)) 
+			if (target.getType().isAir() || target.getType().equals(Material.BEDROCK)) 
 			{
 				return false;
 			}
 
 			if (hasBlockType) 
 			{
-				if (target != null && OreValues.validBlockTypes.containsKey(target.getType())) 
-				{
-					p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
-					NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, Color.TEAL);
-					Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
-					{				
-						Material newMaterial = OreValues.validMaterials.get(target.getType());
-						ItemStack newStack = new ItemStack(newMaterial);
-						NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
-						target.setType(Material.AIR);
-						target.getWorld().dropItemNaturally(target.getLocation(), newStack);
-					}, 1);
-					return true;
-				}
-			}
-			p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
-			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, Color.TEAL);
-			Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
-			{				
+				Material newMaterial = OreValues.validBlockTypes.get(target.getType());
+				ItemStack newStack = new ItemStack(newMaterial);
+				p.playSound(p.getLocation(), Sound.BLOCK_SCULK_VEIN_BREAK, SoundCategory.MASTER, 1, 1);		
 				NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
-				target.breakNaturally();
+				
+				Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+				{
+					target.getWorld().dropItemNaturally(target.getLocation(), newStack);			
+					target.setType(Material.AIR);
+				}, 1);				
+				return true;
+			}
+			p.playSound(p.getLocation(), Sound.BLOCK_SCULK_VEIN_BREAK, SoundCategory.MASTER, 1, 1);
+			NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
+			
+			Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
+			{
+				target.breakNaturally();				
 			}, 1);
 			return true;
 		}
@@ -83,22 +78,15 @@ public class NullPointProtocol extends AbstractResonanceObject
 		{
 			Block target = e.getClickedBlock();
 			
-			if (target == null)
+			if (target.getType().isAir() || target.getType().equals(Material.BEDROCK)) 
 			{
 				return false;
 			}
-			
-			if (target.getType().equals(Material.AIR) || target.getType().equals(Material.BEDROCK)) 
-			{
-				return false;
-			}
-			
-			p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.MASTER, 1, 1);
-			NexusParticles.drawAngledArcLine(p.getLocation(), target.getLocation(), 1, 4, 45, 5, Particle.ASH, null);
+			p.playSound(p.getLocation(), Sound.BLOCK_SCULK_VEIN_BREAK, SoundCategory.MASTER, 1, 1);			
+			NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
 			Bukkit.getScheduler().runTaskLater(NexusProper.instance, ()->
-			{				
-				NexusParticles.drawPoint(target.getLocation(), Particle.EXPLOSION, 0, null);
-				target.breakNaturally();
+			{
+				target.breakNaturally();				
 			}, 1);
 			return true;
 		}

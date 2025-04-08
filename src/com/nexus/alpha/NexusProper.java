@@ -9,6 +9,7 @@ import com.nexus.beta.NexusObjectRecipes.NullPointProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
+import com.nexus.beta.NexusObjectRecipes.VoxMnemonisProtocolRecipe;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
 import com.nexus.io.NexusObject.NexusItemRegistry;
@@ -33,6 +34,7 @@ public class NexusProper extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new NexusObjectCastHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new NexusObjectDropHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new OnJoin(), instance);
+		Bukkit.getPluginManager().registerEvents(new OnQuit(), instance);
 		
 		NexusItemRegistry.itemInit();
 		NexusPrintUtils.NexusConsolePrint("Nexus Objects Loaded: &e"+NexusItemRegistry.itemRegistry.size());
@@ -44,7 +46,7 @@ public class NexusProper extends JavaPlugin
 		OrdinalProtocolRecipe.register();
 		ReticleProtocolRecipe.register();
 		ReconfigurationProtocolRecipe.register();
-
+		VoxMnemonisProtocolRecipe.register();
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 	}
 	
