@@ -160,14 +160,14 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			{
 				NexusPlayerMoney.setDebt(player, NexusPlayerMoney.getMaxDebt(player));
 				NexusDisplayManager.updateHud(player);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully added max &r&c₪ &r&7&oto: &r&f&l"+player.getName()+"&r&7&o's account.");
+				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully added max &r&cЖ &r&7&oto: &r&f&l"+player.getName()+"&r&7&o's account.");
 				return true;
 			}
 			
 			if (args[1].equals("reset") && args.length == 2) 
 			{
 				NexusPlayerMoney.resetValues(player);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully reset { &r&e₪ &r&7&o& &r&c₪ &r&7&o} from: &r&f&l"+player.getName()+"&r&7&o's account.");
+				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully reset { &r&e₪ &r&7&o& &r&cЖ &r&7&o} from: &r&f&l"+player.getName()+"&r&7&o's account.");
 				return true;
 			}
 		}

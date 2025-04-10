@@ -21,7 +21,7 @@ public class NexusDisplayManager
         
         nexusHud.getScore(NexusPrintUtils.ColorParser("&r&f&lUser&r&f: " + p.getDisplayName())).setScore(0);
         nexusHud.getScore(NexusPrintUtils.ColorParser("&r&7⋖&e₪&r&7⋗&r&f")).setScore(NexusPlayerMoney.getMoney(p));
-        nexusHud.getScore(NexusPrintUtils.ColorParser("&r&7⋖&c₪&r&7⋗&r&f")).setScore(NexusPlayerMoney.getDebt(p)*(-1));
+        nexusHud.getScore(NexusPrintUtils.ColorParser("&r&7⋖&cЖ&r&7⋗&r&f")).setScore(NexusPlayerMoney.getDebt(p)*(-1));
        
         p.setScoreboard(board);
     }
@@ -33,7 +33,7 @@ public class NexusDisplayManager
    	 	
    	 	obj.getScore(NexusPrintUtils.ColorParser("&r&f&lUser&r&f: " + p.getDisplayName())).setScore(0);
    	 	obj.getScore(NexusPrintUtils.ColorParser("&r&7⋖&e₪&r&7⋗&r&f")).setScore(NexusPlayerMoney.getMoney(p));
-   	 	obj.getScore(NexusPrintUtils.ColorParser("&r&7⋖&c₪&r&7⋗&r&f")).setScore(NexusPlayerMoney.getDebt(p)*(-1));
+   	 	obj.getScore(NexusPrintUtils.ColorParser("&r&7⋖&cЖ&r&7⋗&r&f")).setScore(NexusPlayerMoney.getDebt(p)*(-1));
     }
     
     //redundant?: 

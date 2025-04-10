@@ -150,7 +150,7 @@ public class NexusParticles
             double x = location.getX() + (radius * Math.cos(angle));
             double z = location.getZ() + (radius * Math.sin(angle));
 
-            locations.add(new Location(world, x, location.getY(), z));
+            locations.add(new Location(world, x, location.getY() + heightOffset, z));
         }
 
         locations.forEach(loc -> {

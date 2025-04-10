@@ -34,7 +34,10 @@ public class NexusObjectDropHandler implements Listener
 			if (currentDrops >= maxDrops) break;
 		    if (r.nextDouble() >= dropChance) continue;
 		    if (hasBeenRecentlyDropped.getOrDefault(item, false)) continue;
-	   
+		    if (item.isRelic()) 
+		    {
+		    	continue;
+		    }
 	    	e.getDrops().add(item.bake());
 	    	hasBeenRecentlyDropped.put(item, true);
 	    	currentDrops++;
