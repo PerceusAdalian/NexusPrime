@@ -22,7 +22,7 @@ public class OnJoin implements Listener
         NexusPlayerMoney.setBaseMaxMoney(p);
         NexusPlayerMoney.setMaxDebt(p);
 		NexusDisplayManager.createHud(p);
-		
+		p.setCanPickupItems(true);
 		if (p.isOp()) 
 		{
 			p.setGameMode(GameMode.CREATIVE);

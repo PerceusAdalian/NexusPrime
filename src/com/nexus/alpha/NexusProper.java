@@ -10,6 +10,9 @@ import com.nexus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.VoxMnemonisProtocolRecipe;
+import com.nexus.chi.NexusGuiHandler;
+import com.nexus.chi.ShopItemContainer;
+import com.nexus.chi.objects.NexusSlateObjectRecipe;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
 import com.nexus.io.NexusObject.NexusItemRegistry;
@@ -35,6 +38,7 @@ public class NexusProper extends JavaPlugin
 		Bukkit.getPluginManager().registerEvents(new NexusObjectDropHandler(), instance);
 		Bukkit.getPluginManager().registerEvents(new OnJoin(), instance);
 		Bukkit.getPluginManager().registerEvents(new OnQuit(), instance);
+		NexusGuiHandler.registerEventListener(instance);
 		
 		NexusItemRegistry.itemInit();
 		NexusPrintUtils.NexusConsolePrint("Nexus Objects Loaded: &e"+NexusItemRegistry.itemRegistry.size());
@@ -42,6 +46,9 @@ public class NexusProper extends JavaPlugin
 		OreValues.initMaterials();
 		OreValues.initBlockTypes();
 		
+		ShopItemContainer.init();
+		
+		NexusSlateObjectRecipe.register();
 		NullPointProtocolRecipe.register();
 		OrdinalProtocolRecipe.register();
 		ReticleProtocolRecipe.register();

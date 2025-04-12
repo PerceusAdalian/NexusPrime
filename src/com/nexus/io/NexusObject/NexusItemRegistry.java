@@ -19,11 +19,12 @@ import com.nexus.beta.ResonanceRelics.OrdinalProtocol;
 import com.nexus.beta.ResonanceRelics.ReconfigurationProtocol;
 import com.nexus.beta.ResonanceRelics.ReticleProtocol;
 import com.nexus.beta.ResonanceRelics.VoxMnemonisProtocol;
-import com.nexus.chi.LuminiteCore;
-import com.nexus.chi.LuminiteDust;
-import com.nexus.chi.LuminiteFragment;
-import com.nexus.chi.LuminiteIngot;
-import com.nexus.chi.LuminiteShard;
+import com.nexus.chi.objects.LuminiteCore;
+import com.nexus.chi.objects.LuminiteDust;
+import com.nexus.chi.objects.LuminiteFragment;
+import com.nexus.chi.objects.LuminiteIngot;
+import com.nexus.chi.objects.LuminiteShard;
+import com.nexus.chi.objects.NexusSlateObject;
 
 /**
  * @Documented NexusItemRegistry A class to handle Nexus Objects for generation, debugging, etc.
@@ -61,7 +62,10 @@ public class NexusItemRegistry
             LuminiteShard.class,
             LuminiteFragment.class,
             LuminiteIngot.class,
-            LuminiteCore.class);
+            LuminiteCore.class,
+            
+        	//msc
+            NexusSlateObject.class);
         
         for (Class<? extends AbstractNexusObject> clazz : itemClasses) 
         {

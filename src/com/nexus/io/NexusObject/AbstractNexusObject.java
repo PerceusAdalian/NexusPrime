@@ -19,7 +19,7 @@ public abstract class AbstractNexusObject
 	public static final NamespacedKey resonanceCrystalObject = new NamespacedKey(NexusProper.instance, "crystal_object");
 	public static final NamespacedKey resonanceRelicObject = new NamespacedKey(NexusProper.instance, "relic_object");
 	private String name;
-	private String internalName;
+	protected String internalName;
 	private String[] itemDescription;
 	private Material material;
 	private boolean isEnchanted = false;

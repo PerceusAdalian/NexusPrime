@@ -13,7 +13,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.nexus.chi.NexusDisplayManager;
+import com.nexus.chi.NexusGuiHandler;
 import com.nexus.chi.NexusPlayerMoney;
+import com.nexus.chi.guis.NexusMainPageGui;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.io.NexusObject.AbstractNexusObject;
 import com.nexus.io.NexusObject.NexusItemRegistry;
@@ -171,7 +173,12 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 				return true;
 			}
 		}
-	
+		
+		if (args[0].equals("nexusmenu")) 
+		{
+			NexusGuiHandler.open(player, new NexusMainPageGui(player));
+			return true;
+		}
 		
 		return false;
 	}
@@ -183,7 +190,7 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 		return switch(args.length) 
 		{
 			case 0 -> List.of("nexus");
-			case 1 -> List.of("debug", "generate","money");
+			case 1 -> List.of("debug", "generate","money", "nexusmenu");
 			case 2 -> 
 			{
 				yield switch(args[0])
@@ -191,6 +198,7 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 					case "debug" -> List.of();
 					case "generate" -> List.of("item");
 					case "money" -> List.of("add", "subtract", "reset", "setMaxMoney", "setMaxDebt");
+					case "nexusmenu" -> List.of();
 					default -> List.of();
 				};
 			}
