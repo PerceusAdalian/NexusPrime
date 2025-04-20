@@ -1,4 +1,4 @@
-package com.nexus.beta.EchoTag;
+package com.nexus.io.EchoTag;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

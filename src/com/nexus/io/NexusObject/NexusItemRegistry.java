@@ -18,6 +18,7 @@ import com.nexus.beta.ResonanceRelics.NullPointProtocol;
 import com.nexus.beta.ResonanceRelics.OrdinalProtocol;
 import com.nexus.beta.ResonanceRelics.ReconfigurationProtocol;
 import com.nexus.beta.ResonanceRelics.ReticleProtocol;
+import com.nexus.beta.ResonanceRelics.VectorDisplacementProtocol;
 import com.nexus.beta.ResonanceRelics.VoxMnemonisProtocol;
 import com.nexus.chi.objects.LuminiteCore;
 import com.nexus.chi.objects.LuminiteDust;
@@ -56,6 +57,7 @@ public class NexusItemRegistry
             ReticleProtocol.class,
             OrdinalProtocol.class,
             VoxMnemonisProtocol.class,
+            VectorDisplacementProtocol.class,
             
         	//Money Items
             LuminiteDust.class,

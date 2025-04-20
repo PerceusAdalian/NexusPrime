@@ -37,8 +37,8 @@ public class OrdinalProtocol extends AbstractResonanceObject
 		if (NexusPlayerActions.shiftRightClickAir(e)) 
 		{
 			Location loc = new Location(p.getWorld(), p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), p.getLocation().getYaw(), p.getLocation().getPitch());
-			p.playSound(p.getLocation(), Sound.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.MASTER, 1, 1);
 			NexusParticles.drawCylinder(p.getLocation(), p.getWidth()+0.5, (int) p.getHeight(), 10, 1, 0.5, Particle.ENCHANT, null);
+			p.playSound(p.getLocation(), Sound.BLOCK_SCULK_CATALYST_BLOOM, SoundCategory.MASTER, 1, 1);
 			NexusParticles.drawDisc(p.getLocation(), p.getWidth()+0.5, 1, 20, 0, Particle.WARPED_SPORE, null);
 			p.setRespawnLocation(loc, true);
 			NexusPrintUtils.NexusFormatPrint(p, "&r&7&oRespawn location set for: " + p.getName());

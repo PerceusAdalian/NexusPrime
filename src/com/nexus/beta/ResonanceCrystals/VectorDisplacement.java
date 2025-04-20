@@ -45,7 +45,7 @@ public class VectorDisplacement extends AbstractResonanceObject
 			return false;
 		}
 		
-		if (NexusPlayerActions.shiftRightClickAir(e)) //This doesn't work as planned..
+		if (NexusPlayerActions.shiftRightClickAir(e))
 		{
 			NexusParticles.drawLine(target.getLocation(), p.getLocation(), 1, 0.5, Particle.END_ROD, null);
 			target.setVelocity(p.getLocation().toVector().subtract(target.getLocation().toVector()).normalize().multiply(5));

@@ -1,4 +1,4 @@
-package com.nexus.beta.EchoTag;
+package com.nexus.io.EchoTag;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -22,13 +22,13 @@ public class NexusMainPageGui extends AbstractNexusGui
 	@Override
 	protected void build() 
 	{
-		NexusGuiButton.button(Material.WRITABLE_BOOK).setName("Recipes").setLore("Click to view all Nexus Object Recipes").place(this, 12, e->{
+		NexusGuiButton.button(Material.WRITABLE_BOOK).setName("&d&lRecipes").setLore("Click to view all &3&lNexus Object Recipes").place(this, 12, e->{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_LEATHER, SoundCategory.MASTER, 1, 1);
 			NexusGuiHandler.changeMenu(p, new NexusRecipesMainGui(p));
 		});
 		
-		NexusGuiButton.button(Material.NAME_TAG).setName("Shop").setLore("&r&fSpend &e₪&f to buy items").place(this, 13, e->
+		NexusGuiButton.button(Material.NAME_TAG).setName("&e&lShop").setLore("&r&fSpend &e₪&f to buy items").place(this, 13, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GOLD, SoundCategory.MASTER, 1, 1);
@@ -36,14 +36,14 @@ public class NexusMainPageGui extends AbstractNexusGui
 		});
 		
 		//Exits
-		NexusGuiButton.button(Material.RED_STAINED_GLASS_PANE).setName("&c&lExit Menu").setLore("Click to exit").place(this, 10, e->
+		NexusGuiButton.button(Material.RED_STAINED_GLASS_PANE).setName("&c&lExit Menu").setLore("Click to exit.").place(this, 10, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.BLOCK_CHAIN_BREAK, SoundCategory.MASTER, 1, 1);
 			NexusGuiHandler.close(p);
 		});
 		
-		NexusGuiButton.button(Material.RED_STAINED_GLASS_PANE).setName("&c&lExit Menu").setLore("Click to exit").place(this, 16, e->
+		NexusGuiButton.button(Material.RED_STAINED_GLASS_PANE).setName("&c&lExit Menu").setLore("Click to exit.").place(this, 16, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.BLOCK_CHAIN_BREAK, SoundCategory.MASTER, 1, 1);

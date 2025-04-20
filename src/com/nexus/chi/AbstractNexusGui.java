@@ -35,7 +35,6 @@ public abstract class AbstractNexusGui
 	
 	public void open() 
 	{
-		player.setCanPickupItems(false);
 		build();
 		player.openInventory(inv);
 	}
@@ -65,7 +64,7 @@ public abstract class AbstractNexusGui
 	
 	public void handleClose(InventoryCloseEvent e) 
 	{
-		e.getPlayer().setCanPickupItems(true);	
+		return;
 	}
 	
 	public void paint() 

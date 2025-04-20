@@ -126,7 +126,7 @@ public class NexusParticles
 		for (double length = 0; length < distance; length += interval) 
 		{
 			Vector point = vec1.clone().add(direction.clone().multiply(length)); //Creating points from initial location to final.
-			double arcHeightDeviation = baseArcHeight * Math.sin(Math.PI * (length/distance)); //Controls the arc height as a cos wave.
+			double arcHeightDeviation = baseArcHeight * Math.sin(Math.PI * (length/distance)); //Controls the arc height as a sine wave.
 			Vector displacement = rotatedPerp.clone().multiply((arcHeightDeviation += (rand.nextDouble() * arcDeviation - arcDeviation / 2)));
 			world.spawnParticle(particle, 
 					point.getX() + displacement.getX(), //Applying x, y, and z coordinates of the particle to their displacement. 
@@ -230,7 +230,7 @@ public class NexusParticles
 	 * @param particle Particle type.
 	 * @param data Particle data.
 	 */
-	public static <T> void drawSpiralVortext(Location origin, double tBound, double spiralHeight, double heightOffset, Particle particle, T data) 
+	public static <T> void drawSpiralVortex(Location origin, double tBound, double spiralHeight, double heightOffset, Particle particle, T data) 
 	{
 		if (tBound > 6.0 || tBound < 0.0) tBound = 6.0;
 		double tLimit = tBound * Math.PI;

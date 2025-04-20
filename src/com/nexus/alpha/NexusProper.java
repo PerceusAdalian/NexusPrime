@@ -3,18 +3,19 @@ package com.nexus.alpha;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.nexus.beta.EchoTag.EchoTagAssignmentHandler;
-import com.nexus.beta.EchoTag.EchoTagDespawnHandler;
 import com.nexus.beta.NexusObjectRecipes.NullPointProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
+import com.nexus.beta.NexusObjectRecipes.VectorDisplacementProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.VoxMnemonisProtocolRecipe;
 import com.nexus.chi.NexusGuiHandler;
 import com.nexus.chi.ShopItemContainer;
 import com.nexus.chi.objects.NexusSlateObjectRecipe;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
+import com.nexus.io.EchoTag.EchoTagAssignmentHandler;
+import com.nexus.io.EchoTag.EchoTagDespawnHandler;
 import com.nexus.io.NexusObject.NexusItemRegistry;
 import com.nexus.io.NexusObject.NexusObjectCastHandler;
 import com.nexus.io.NexusObject.NexusObjectDropHandler;
@@ -48,12 +49,14 @@ public class NexusProper extends JavaPlugin
 		
 		ShopItemContainer.init();
 		
+		VectorDisplacementProtocolRecipe.register();
 		NexusSlateObjectRecipe.register();
 		NullPointProtocolRecipe.register();
 		OrdinalProtocolRecipe.register();
 		ReticleProtocolRecipe.register();
 		ReconfigurationProtocolRecipe.register();
 		VoxMnemonisProtocolRecipe.register();
+		
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 	}
 	

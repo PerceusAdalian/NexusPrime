@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.util.RayTraceResult;
 
@@ -30,9 +29,10 @@ public class NexusWorldEvents
 	
 	public static Block rayTraceBlock(Player p, double range) 
 	{
-		RayTraceResult result = p.getWorld().rayTraceBlocks(p.getEyeLocation().add(p.getEyeLocation().getDirection().normalize().multiply(2)),p.getEyeLocation().getDirection(),range);
-	    
-	    if(result == null || result.getHitEntity() == null) return null;
-	    return result.getHitBlock().getRelative(BlockFace.UP);
+		Location eye = p.getEyeLocation();
+		RayTraceResult result = p.getWorld().rayTraceBlocks(eye, eye.getDirection(), range);
+
+	    if(result == null || result.getHitBlock() == null) return null;
+	    return result.getHitBlock();
 	}
 }

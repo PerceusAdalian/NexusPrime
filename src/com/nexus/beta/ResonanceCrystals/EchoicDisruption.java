@@ -50,7 +50,7 @@ public class EchoicDisruption extends AbstractResonanceObject
 				{
 					p.playSound(target.getLocation(), Sound.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.MASTER, 1, 1);
 					NexusParticles.drawLine(target.getLocation(), target.getLocation().add(0,5,0), 2, 0, Particle.SONIC_BOOM, null);
-					NexusParticles.drawSpiralVortext(target.getLocation(), 6, target.getHeight(), 0.5, Particle.SCULK_SOUL, null);
+					NexusParticles.drawSpiralVortex(target.getLocation(), 6, target.getHeight(), 0.5, Particle.SCULK_SOUL, null);
 					NexusParticles.drawVerticalVortex(target.getLocation(), target.getWidth(), target.getHeight(), 2, 3, 20, 0.5, Particle.WARPED_SPORE, null);
 					NexusParticles.drawWisps(target.getLocation(), target.getWidth(), target.getHeight(), 20, Particle.WARPED_SPORE, null);
 					target.setVelocity(direction);
