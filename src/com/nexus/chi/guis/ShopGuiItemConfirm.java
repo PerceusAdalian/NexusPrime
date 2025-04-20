@@ -26,7 +26,7 @@ public class ShopGuiItemConfirm extends AbstractNexusGui
 	@Override
 	protected void build() 
 	{
-		String itemName = NexusShopGui.confirmBuyer.get(player).toString().toLowerCase();
+		String itemName = NexusShopGui.confirmBuyer.get(player.getUniqueId()).toString().toLowerCase();
 		String[] splitName = itemName.split("_");
 		itemName = "";
 		for (String s : splitName) 
@@ -54,21 +54,21 @@ public class ShopGuiItemConfirm extends AbstractNexusGui
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.MASTER, 1,1);
 		});
 		
-		NexusGuiButton.button(NexusShopGui.confirmBuyer.get(player))
+		NexusGuiButton.button(NexusShopGui.confirmBuyer.get(player.getUniqueId()))
 		.setName("&r&f" + itemName + " 1x")
-		.setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player))))
+		.setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player.getUniqueId()))))
 		.place(this, 12, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			e.setCancelled(true);
-			ItemStack stack = new ItemStack(NexusShopGui.confirmBuyer.get(player), 1);
-			int cost = ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player));
+			ItemStack stack = new ItemStack(NexusShopGui.confirmBuyer.get(player.getUniqueId()), 1);
+			int cost = ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player.getUniqueId()));
 			
 			if (NexusPlayerMoney.getMoney(p) < cost) 
 			{
 				p.playSound(p.getLocation(), Sound.BLOCK_CHAIN_BREAK, SoundCategory.MASTER, 1,1);
 				NexusPrintUtils.NexusFormatError(p, "&r&7&oYou do not have the funds to purchase this. Closing shop menu..");
-				NexusShopGui.confirmBuyer.remove(player);
+				NexusShopGui.confirmBuyer.remove(player.getUniqueId());
 				NexusGuiHandler.close(p);
 			}
 			else 
@@ -79,21 +79,21 @@ public class ShopGuiItemConfirm extends AbstractNexusGui
 			}
 		});
 		
-		NexusGuiButton.button(NexusShopGui.confirmBuyer.get(player))
+		NexusGuiButton.button(NexusShopGui.confirmBuyer.get(player.getUniqueId()))
 		.setName("&r&f" + itemName + " 16x")
-		.setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player))*16))
+		.setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player.getUniqueId()))*16))
 		.place(this, 13, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			e.setCancelled(true);
-			ItemStack stack = new ItemStack(NexusShopGui.confirmBuyer.get(player), 16);
-			int cost = ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player))*16;
+			ItemStack stack = new ItemStack(NexusShopGui.confirmBuyer.get(player.getUniqueId()), 16);
+			int cost = ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player.getUniqueId()))*16;
 			
 			if (NexusPlayerMoney.getMoney(p) < cost) 
 			{
 				p.playSound(p.getLocation(), Sound.BLOCK_CHAIN_BREAK, SoundCategory.MASTER, 1,1);
 				NexusPrintUtils.NexusFormatError(p, "&r&7&oYou do not have the funds to purchase this. Closing shop menu..");
-				NexusShopGui.confirmBuyer.remove(player);
+				NexusShopGui.confirmBuyer.remove(player.getUniqueId());
 				NexusGuiHandler.close(p);
 			}
 			else 
@@ -104,21 +104,21 @@ public class ShopGuiItemConfirm extends AbstractNexusGui
 			}
 		});
 		
-		NexusGuiButton.button(NexusShopGui.confirmBuyer.get(player))
+		NexusGuiButton.button(NexusShopGui.confirmBuyer.get(player.getUniqueId()))
 		.setName("&r&f" + itemName + " 32x")
-		.setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player))*32))
+		.setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player.getUniqueId()))*32))
 		.place(this, 14, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			e.setCancelled(true);
-			ItemStack stack = new ItemStack(NexusShopGui.confirmBuyer.get(player), 32);
-			int cost = ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player))*32;
+			ItemStack stack = new ItemStack(NexusShopGui.confirmBuyer.get(player.getUniqueId()), 32);
+			int cost = ShopItemContainer.itemTable.get(NexusShopGui.confirmBuyer.get(player.getUniqueId()))*32;
 			
 			if (NexusPlayerMoney.getMoney(p) < cost) 
 			{
 				p.playSound(p.getLocation(), Sound.BLOCK_CHAIN_BREAK, SoundCategory.MASTER, 1,1);
 				NexusPrintUtils.NexusFormatError(p, "&r&7&oYou do not have the funds to purchase this. Closing shop menu..");
-				NexusShopGui.confirmBuyer.remove(player);
+				NexusShopGui.confirmBuyer.remove(player.getUniqueId());
 				NexusGuiHandler.close(p);
 			}
 			else 
@@ -135,7 +135,7 @@ public class ShopGuiItemConfirm extends AbstractNexusGui
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.MASTER, 1, 1);
-			NexusShopGui.confirmBuyer.remove(player);
+			NexusShopGui.confirmBuyer.remove(player.getUniqueId());
 			NexusGuiHandler.changeMenu(p, new NexusShopGui(p));
 		});
 		
@@ -143,7 +143,7 @@ public class ShopGuiItemConfirm extends AbstractNexusGui
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.BLOCK_CHAIN_BREAK, SoundCategory.MASTER, 1, 1);
-			NexusShopGui.confirmBuyer.remove(player);
+			NexusShopGui.confirmBuyer.remove(player.getUniqueId());
 			NexusGuiHandler.close(p);
 		});
 		paint();

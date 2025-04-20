@@ -3,6 +3,7 @@ package com.nexus.chi.guis;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -17,7 +18,7 @@ import com.nexus.epsilon.NexusPrintUtils;
 
 public class NexusShopGui extends AbstractNexusGui
 {
-	public static Map<Player, Material> confirmBuyer = new HashMap<>();
+	public static Map<UUID, Material> confirmBuyer = new HashMap<>();
 
 	public NexusShopGui(Player player) 
 	{
@@ -28,12 +29,11 @@ public class NexusShopGui extends AbstractNexusGui
 	protected void build() 
 	{
 		
-		
 		NexusGuiButton.button(Material.DIRT).setLore(NexusPrintUtils.setCost(ShopItemContainer.itemTable.get(Material.DIRT))).place(this, 21, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_LEATHER, SoundCategory.MASTER, 1, 1);
-			confirmBuyer.put(p, Material.DIRT);
+			confirmBuyer.put(p.getUniqueId(), Material.DIRT);
 			NexusGuiHandler.changeMenu(p, new ShopGuiItemConfirm(p));
 		});
 		
@@ -41,7 +41,7 @@ public class NexusShopGui extends AbstractNexusGui
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_LEATHER, SoundCategory.MASTER, 1, 1);
-			confirmBuyer.put(p, Material.OAK_WOOD);
+			confirmBuyer.put(p.getUniqueId(), Material.OAK_WOOD);
 			NexusGuiHandler.changeMenu(p, new ShopGuiItemConfirm(p));
 		});
 		
@@ -49,7 +49,7 @@ public class NexusShopGui extends AbstractNexusGui
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_LEATHER, SoundCategory.MASTER, 1, 1);
-			confirmBuyer.put(p, Material.BREAD);
+			confirmBuyer.put(p.getUniqueId(), Material.BREAD);
 			NexusGuiHandler.changeMenu(p, new ShopGuiItemConfirm(p));
 		});
 		
