@@ -72,6 +72,9 @@ public class NexusProper extends JavaPlugin
  * 		
  *  Ordinal Protocol still won't properly record and teleport player to a set respawn location due to 
  *  #setBestSpawnLocation() being deprecated..
+ * 
+ *  >>MONEY BRANCH (CHI):
+ *  > Make it so that money drops within certain ranges and then make it so that it changes the material/name,etc (money tiers dynamically) within said given range.
  *  
  *  Null Point Protocol will not fire and break blocks.. debug 
  */
