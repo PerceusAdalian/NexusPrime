@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.trim.ArmorTrim;
 import org.bukkit.inventory.meta.trim.TrimMaterial;
 import org.bukkit.inventory.meta.trim.TrimPattern;
-
+@Deprecated
 public class NexusItemUtils 
 {	
 	@SuppressWarnings("unchecked")
