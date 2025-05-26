@@ -26,6 +26,7 @@ import com.nexus.chi.objects.LuminiteFragment;
 import com.nexus.chi.objects.LuminiteIngot;
 import com.nexus.chi.objects.LuminiteShard;
 import com.nexus.chi.objects.NexusSlateObject;
+import com.nexus.io.NexusObject.instances.Remembrance;
 
 /**
  * @Documented NexusItemRegistry A class to handle Nexus Objects for generation, debugging, etc.
@@ -67,7 +68,8 @@ public class NexusItemRegistry
             LuminiteCore.class,
             
         	//msc
-            NexusSlateObject.class);
+            NexusSlateObject.class,
+            Remembrance.class);
         
         for (Class<? extends AbstractNexusObject> clazz : itemClasses) 
         {

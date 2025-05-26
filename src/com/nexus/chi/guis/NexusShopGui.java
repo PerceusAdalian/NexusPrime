@@ -54,7 +54,7 @@ public class NexusShopGui extends AbstractNexusGui
 		});
 		
 		//Exits
-		NexusGuiButton.button(Material.YELLOW_STAINED_GLASS_PANE).setName("<- &e&lGo Back").setLore("Click to return to the previous screen.").place(this, 37, e->
+		NexusGuiButton.button(Material.GREEN_STAINED_GLASS_PANE).setName("<- &e&lGo Back").setLore("Click to return to the previous screen.").place(this, 37, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.MASTER, 1, 1);

@@ -49,7 +49,7 @@ public class NexusRecipesMainGui extends AbstractNexusGui
 		});
 		
 		//Exits / Go Back
-		NexusGuiButton.button(Material.YELLOW_STAINED_GLASS_PANE).setName("<- &e&lGo Back").setLore("Click to return to the previous screen.").place(this, 10, e->
+		NexusGuiButton.button(Material.GREEN_STAINED_GLASS_PANE).setName("<- &e&lGo Back").setLore("Click to return to the previous screen.").place(this, 10, e->
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.MASTER, 1, 1);

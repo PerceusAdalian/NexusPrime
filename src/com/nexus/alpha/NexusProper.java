@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.nexus.beta.NexusObjectRecipes.NullPointProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.OrdinalProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReconfigurationProtocolRecipe;
+import com.nexus.beta.NexusObjectRecipes.RemembranceRecipe;
 import com.nexus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.VectorDisplacementProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.VoxMnemonisProtocolRecipe;
@@ -56,6 +57,7 @@ public class NexusProper extends JavaPlugin
 		ReticleProtocolRecipe.register();
 		ReconfigurationProtocolRecipe.register();
 		VoxMnemonisProtocolRecipe.register();
+		RemembranceRecipe.register();
 		
 		NexusPrintUtils.NexusConsolePrint("Nexus -- &aOK");
 	}
