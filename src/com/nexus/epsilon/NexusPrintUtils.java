@@ -4,6 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+
 public class NexusPrintUtils
 {
 	public static String ColorParser(String msg) 
@@ -19,6 +22,19 @@ public class NexusPrintUtils
 	public static void Print(Player player, String msg) 
 	{
 		player.getPlayer().sendMessage(ColorParser(msg));
+	}
+	
+	public static void Print(Player player, String...msg) 
+	{
+		for (String line : msg) 
+		{			
+			player.getPlayer().sendMessage(ColorParser(line));
+		}
+	}
+	
+	public static void PrintToActionBar(Player player, String msg) 
+	{
+		player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ColorParser(msg)));
 	}
 	
 	public static String setCost(int cost) 
