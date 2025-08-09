@@ -37,11 +37,6 @@ public class NexusPrintUtils
 		player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ColorParser(msg)));
 	}
 	
-	public static String setCost(int cost) 
-	{
-		return ColorParser("&r&fCost: " + cost + "&e₪&f");
-	}
-	
 	public static void NexusFormatPrint(Player player, String msg) 
 	{
 		Print(player, "&f{&eν&r&f} "+msg+" &r&f/&e$&f//");

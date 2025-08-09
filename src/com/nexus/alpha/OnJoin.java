@@ -6,8 +6,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.nexus.chi.NexusDisplayManager;
-import com.nexus.chi.NexusPlayerMoney;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.io.NexusObject.AbstractNexusObject;
 import com.nexus.io.NexusObject.NexusItemRegistry;
@@ -18,10 +16,6 @@ public class OnJoin implements Listener
 	public void onJoin(PlayerJoinEvent e) 
 	{
 		Player p = e.getPlayer();
-		NexusPlayerMoney.setBaseMinMoney(p);
-        NexusPlayerMoney.setBaseMaxMoney(p);
-        NexusPlayerMoney.setMaxDebt(p);
-		NexusDisplayManager.createHud(p);
 		p.setCanPickupItems(true);
 		if (p.isOp()) 
 		{

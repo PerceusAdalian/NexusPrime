@@ -13,6 +13,7 @@ import com.nexus.epsilon.NexusParticles;
 import com.nexus.epsilon.NexusPlayerActions;
 import com.nexus.io.NexusObject.AbstractNexusObject;
 
+@Deprecated
 public class NexusSlateObject extends AbstractNexusObject
 {
 

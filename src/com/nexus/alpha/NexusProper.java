@@ -11,8 +11,6 @@ import com.nexus.beta.NexusObjectRecipes.ReticleProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.VectorDisplacementProtocolRecipe;
 import com.nexus.beta.NexusObjectRecipes.VoxMnemonisProtocolRecipe;
 import com.nexus.chi.NexusGuiHandler;
-import com.nexus.chi.ShopItemContainer;
-import com.nexus.chi.objects.NexusSlateObjectRecipe;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.epsilon.OreValues;
 import com.nexus.io.EchoTag.EchoTagAssignmentHandler;
@@ -48,10 +46,8 @@ public class NexusProper extends JavaPlugin
 		OreValues.initMaterials();
 		OreValues.initBlockTypes();
 		
-		ShopItemContainer.init();
-		
 		VectorDisplacementProtocolRecipe.register();
-		NexusSlateObjectRecipe.register();
+//		NexusSlateObjectRecipe.register();
 		NullPointProtocolRecipe.register();
 		OrdinalProtocolRecipe.register();
 		ReticleProtocolRecipe.register();

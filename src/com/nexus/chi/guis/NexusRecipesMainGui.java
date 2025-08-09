@@ -53,7 +53,7 @@ public class NexusRecipesMainGui extends AbstractNexusGui
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.MASTER, 1, 1);
-			NexusGuiHandler.changeMenu(p, new NexusMainPageGui(p));
+//			NexusGuiHandler.changeMenu(p, new NexusMainPageGui(p));
 		});
 		
 		NexusGuiButton.button(Material.RED_STAINED_GLASS_PANE).setName("&c&lExit Menu").setLore("Click to exit.").place(this, 16, e->

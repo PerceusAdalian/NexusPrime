@@ -12,10 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
-import com.nexus.chi.NexusDisplayManager;
-import com.nexus.chi.NexusGuiHandler;
-import com.nexus.chi.NexusPlayerMoney;
-import com.nexus.chi.guis.NexusMainPageGui;
 import com.nexus.epsilon.NexusPrintUtils;
 import com.nexus.io.NexusObject.AbstractNexusObject;
 import com.nexus.io.NexusObject.NexusItemRegistry;
@@ -100,86 +96,12 @@ public class NexusCommand implements CommandExecutor, TabCompleter
 			}
 		}
 		
-		if (args[0].equals("money")) 
-		{
-			if (args[1].equals("add") && args.length == 3) 
-			{
-				int value;
-				try 
-				{
-					value = Integer.parseInt(args[2]);
-				} 
-				catch (NumberFormatException e)
-				{
-					NexusPrintUtils.NexusFormatError(player, "&r&7&oExpecting Integer in args[2].");
-					return false;
-				}
-				
-				if (value <= 0 || value > 99999999) 
-				{
-					NexusPrintUtils.NexusFormatError(player, "&r&7&oExpecting a value between 0 and 99999999.");
-					return false;
-				}
-				
-				NexusPlayerMoney.add(player, value);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully added {&r&f&l"+value+"&r&e₪&r&7&o} to: &r&f&l"+player.getName()+"&r&7&o's account.");
-				return true;
-			}
-			
-			if (args[1].equals("subtract") && args.length == 3) 
-			{
-				int value;
-				try 
-				{
-					value = Integer.parseInt(args[2]);
-				} 
-				catch (NumberFormatException e)
-				{
-					NexusPrintUtils.NexusFormatError(player, "&r&7&oExpecting Integer in args[2].");
-					return false;
-				}
-				
-				if (value <= 0 || value > 99999999) 
-				{
-					NexusPrintUtils.NexusFormatError(player, "&r&7&oExpecting a value between 0 and 99999999.");
-					return false;
-				}
-				
-				NexusPlayerMoney.subtract(player, value);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully subtracted {&r&f&l"+value+"&r&e₪&r&7&o} from: &r&f&l"+player.getName()+"&r&7&o's account.");
-				return true;
-			}
-			
-			if (args[1].equals("setMaxMoney") && args.length == 2) 
-			{
-				NexusPlayerMoney.setMoney(player, NexusPlayerMoney.getBaseMaxMoney(player));
-				NexusDisplayManager.updateHud(player);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully added max &r&e₪ &r&7&oto: &r&f&l"+player.getName()+"&r&7&o's account.");
-				return true;
-			}
-			
-			if (args[1].equals("setMaxDebt") && args.length == 2) 
-			{
-				NexusPlayerMoney.setDebt(player, NexusPlayerMoney.getMaxDebt(player));
-				NexusDisplayManager.updateHud(player);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully added max &r&cЖ &r&7&oto: &r&f&l"+player.getName()+"&r&7&o's account.");
-				return true;
-			}
-			
-			if (args[1].equals("reset") && args.length == 2) 
-			{
-				NexusPlayerMoney.resetValues(player);
-				NexusPrintUtils.NexusFormatPrint(player, "&r&7&oSuccessfully reset { &r&e₪ &r&7&o& &r&cЖ &r&7&o} from: &r&f&l"+player.getName()+"&r&7&o's account.");
-				return true;
-			}
-		}
-		
-		if (args[0].equals("nexusmenu")) 
-		{
-			NexusGuiHandler.open(player, new NexusMainPageGui(player));
-			return true;
-		}
-		
+//		if (args[0].equals("nexusmenu")) 
+//		{
+//			NexusGuiHandler.open(player, new NexusMainPageGui(player));
+//			return true;
+//		}
+//		
 		return false;
 	}
 

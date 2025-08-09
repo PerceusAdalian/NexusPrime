@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import com.nexus.chi.AbstractNexusGui;
 import com.nexus.chi.NexusGuiButton;
 import com.nexus.chi.NexusGuiHandler;
-
+@Deprecated
 public class NexusMainPageGui extends AbstractNexusGui
 {
 
@@ -32,7 +32,7 @@ public class NexusMainPageGui extends AbstractNexusGui
 		{
 			Player p = (Player) e.getWhoClicked();
 			p.playSound(p.getLocation(), Sound.ITEM_ARMOR_EQUIP_GOLD, SoundCategory.MASTER, 1, 1);
-			NexusGuiHandler.changeMenu(p, new NexusShopGui(p));
+//			NexusGuiHandler.changeMenu(p, new NexusShopGui(p));
 		});
 		
 		//Exits

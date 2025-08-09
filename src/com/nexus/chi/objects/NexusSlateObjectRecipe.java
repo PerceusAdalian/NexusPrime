@@ -8,6 +8,7 @@ import org.bukkit.inventory.ShapelessRecipe;
 
 import com.nexus.alpha.NexusProper;
 
+@Deprecated
 public class NexusSlateObjectRecipe 
 {
 	public static void register() 
